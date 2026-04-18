@@ -16,10 +16,8 @@
     --text:      #e8dff5;
     --white:     #ffffff;
     --gengar-shadow: #3b0764;
-    /* --font-display: 'Cinzel', serif;
-    --font-body:    'Raleway', sans-serif; */
-    --font-display: 'Pacifico', cursive;
-    --font-body:    'Raleway', sans-serif; /* giữ nguyên dòng này */
+    --font-display: 'Playfair Display', serif;
+    --font-body:    'Raleway', sans-serif;
 }
 
 html { 
@@ -55,13 +53,13 @@ body {
     transition: transform 0.18s ease;
 }
 
-/* ── VIDEO BG ── */
+/* ── VIDEO BG ──
 #video-bg {
     position: fixed; inset: 0; z-index: 0;
     width: 100%; height: 100%; object-fit: cover;
     opacity: 0.18;
     filter: hue-rotate(260deg) saturate(1.6) brightness(0.5);
-}
+} */
 
 /* ── GHOST ORBS ── */
 .orb {
@@ -211,7 +209,9 @@ h1.hero-title em {
     margin-top: 32px;
     font-size: clamp(14px, 1.5vw, 17px);
     font-weight: 300;
-    color: var(--muted);
+    /* color: var(--muted); */
+    color: var(--text);
+    font-size: clamp(16px, 1.8vw, 20px);
     max-width: 560px;
     line-height: 1.75;
     letter-spacing: 0.02em;
@@ -371,7 +371,7 @@ h2.section-title {
     margin-bottom: 20px;
 }
 .project-card p {
-    font-size: 14px; font-weight: 300;
+    font-size: 17px; font-weight: 400;
     color: var(--muted); line-height: 1.7; margin-bottom: 32px;
 }
 
@@ -397,9 +397,10 @@ h2.section-title {
     overflow: hidden; position: relative;
 }
 .card-visual-inner {
-    font-family: var(--font-display);
-    font-size: 80px; opacity: 0.25;
-    user-select: none;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
 }
 
 /* ── SKILLS SECTION ── */
@@ -420,10 +421,13 @@ h2.section-title {
 }
 .skills-col ul { list-style: none; }
 .skills-col li {
-    font-size: 13px; font-weight: 300;
-    color: var(--muted); padding: 8px 0;
+    font-size: 16px; font-weight: 400;
+  color: var(--text);
+    padding: 8px 0;
     border-bottom: 1px solid rgba(255,255,255,0.04);
-    display: flex; align-items: center; gap: 10px;
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
     transition: color 0.25s;
 }
 .skills-col li:hover { color: var(--lavender); }
@@ -432,8 +436,8 @@ h2.section-title {
 .connect-links { display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
 .connect-link {
     display: flex; align-items: center; gap: 12px;
-    font-size: 13px; font-weight: 300;
-    color: var(--muted); text-decoration: none;
+    font-size: 16px; font-weight: 500;
+    color: var(--text); text-decoration: none;
     transition: color 0.25s, text-shadow 0.25s;
 }
 .connect-link:hover { color: var(--lavender); text-shadow: 0 0 12px rgba(192,132,252,0.4); }
@@ -448,8 +452,8 @@ h2.section-title {
     display: flex; gap: 24px; margin-top: 28px;
 }
 .social-link {
-    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--muted); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text); text-decoration: none; font-weight: 500;
     transition: color 0.25s;
 }
 .social-link:hover { color: var(--lavender); }
@@ -481,7 +485,7 @@ footer p {
     .nav-links { display: none; }
     .section-inner { padding: 0 24px; }
     .projects-grid { grid-template-columns: 1fr; }
-    .card-featured { grid-column: 1; grid-template-columns: 1fr; }
+    .card-featured { grid-column: 1 / -1; grid-template-columns: 1fr; }
     .card-featured .card-visual { display: none; }
     .skills-layout { grid-template-columns: 1fr; gap: 40px; }
     .projects-header { flex-direction: column; align-items: flex-start; gap: 16px; }
