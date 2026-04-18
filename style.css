@@ -53,14 +53,6 @@ body {
     transition: transform 0.18s ease;
 }
 
-/* ── VIDEO BG ──
-#video-bg {
-    position: fixed; inset: 0; z-index: 0;
-    width: 100%; height: 100%; object-fit: cover;
-    opacity: 0.18;
-    filter: hue-rotate(260deg) saturate(1.6) brightness(0.5);
-} */
-
 /* ── GHOST ORBS ── */
 .orb {
     position: fixed; border-radius: 50%; pointer-events: none;
@@ -166,6 +158,37 @@ nav {
 }
 .nav-cta:hover { transform: scale(1.04); box-shadow: 0 0 24px rgba(123,47,255,0.5); }
 
+/* ── LANGUAGE SWITCHER ── */
+.lang-switch {
+    display: flex; align-items: center; gap: 5px;
+    background: rgba(123,47,255,0.07);
+    border: 1px solid rgba(192,132,252,0.18);
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: border-color 0.25s, box-shadow 0.25s;
+    flex-shrink: 0;
+}
+.lang-switch:hover {
+    border-color: rgba(192,132,252,0.45);
+    box-shadow: 0 0 16px rgba(123,47,255,0.25);
+}
+.lang-option {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.25s;
+    line-height: 1;
+}
+.lang-option.lang-active {
+    color: var(--lavender);
+    text-shadow: 0 0 10px rgba(192,132,252,0.5);
+}
+.lang-divider {
+    font-size: 10px; color: rgba(192,132,252,0.25);
+    line-height: 1;
+}
+
 /* ── HERO ── */
 #hero {
     position: relative; z-index: 10;
@@ -177,13 +200,15 @@ nav {
 }
 
 .hero-eyebrow {
-    font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--lavender); margin-bottom: 28px;
     opacity: 0; animation: rise 0.9s ease-out 0.1s both;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    white-space: nowrap;
 }
-.hero-eyebrow span {
-    display: inline-block; width: 32px; height: 1px;
-    background: var(--lavender); vertical-align: middle; margin: 0 10px;
+.hero-eyebrow span:not([data-i18n]) {
+    display: inline-block; width: 28px; height: 1px;
+    background: var(--lavender); flex-shrink: 0;
 }
 
 h1.hero-title {
@@ -209,7 +234,6 @@ h1.hero-title em {
     margin-top: 32px;
     font-size: clamp(14px, 1.5vw, 17px);
     font-weight: 300;
-    /* color: var(--muted); */
     color: var(--text);
     font-size: clamp(16px, 1.8vw, 20px);
     max-width: 560px;
@@ -249,22 +273,14 @@ h1.hero-title em {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── GENGAR SILHOUETTE SVG ── */
-/* .gengar-svg {
-    position: absolute; bottom: -20px; right: 5%;
-    width: clamp(200px, 22vw, 360px);
-    opacity: 0.08;
-    filter: drop-shadow(0 0 40px rgba(123,47,255,0.5));
-    animation: gengar-float 8s ease-in-out infinite;
-    pointer-events: none;
-} */
+/* ── GENGAR SILHOUETTE ── */
 .gengar-svg {
     position: absolute; bottom: -20px; right: 5%;
     width: clamp(200px, 22vw, 360px);
     opacity: 0.18;
     filter: drop-shadow(0 0 40px rgba(123,47,255,0.5)) 
-            hue-rotate(260deg)    /* <-- xoay màu sang tím */
-            saturate(1.5);        /* <-- đậm màu hơn */
+            hue-rotate(260deg)
+            saturate(1.5);
     animation: gengar-float 8s ease-in-out infinite;
     pointer-events: none;
 }
@@ -274,11 +290,11 @@ h1.hero-title em {
 }
 
 .gengar-left {
-    right: auto;       /* bỏ right */
-    left: 3%;          /* đặt sang trái */
+    right: auto;
+    left: 3%;
     bottom: -20px;
-    transform: scaleX(-1);  /* lật gương để quay mặt vào trong */
-    animation-delay: -4s;   /* lệch phase để 2 con float không đồng bộ */
+    transform: scaleX(-1);
+    animation-delay: -4s;
 }
 
 .poke-float {
@@ -384,7 +400,7 @@ h2.section-title {
     padding: 4px 12px; border-radius: 4px;
 }
 
-/* ── GHOST CARD (larger featured) ── */
+/* ── FEATURED CARD ── */
 .card-featured {
     grid-column: 1 / -1;
     display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
@@ -422,7 +438,7 @@ h2.section-title {
 .skills-col ul { list-style: none; }
 .skills-col li {
     font-size: 16px; font-weight: 400;
-  color: var(--text);
+    color: var(--text);
     padding: 8px 0;
     border-bottom: 1px solid rgba(255,255,255,0.04);
     display: flex; 
