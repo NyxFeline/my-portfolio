@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Đỗ Thiệu Vy — Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" /> -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <!-- Cursor -->
+        <div id="cursor"></div>
+        <div id="cursor-ring"></div>
+
+        <!-- Ghost orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
+        <!-- Video BG -->
+        <!-- <video id="video-bg" autoplay loop muted playsinline>
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4" type="video/mp4" />
+        </video> -->
+
+        <!-- NAV -->
+        <nav>
+            <a href="#" class="logo">NyxFeline<sup>®</sup></a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Stack</a></li>
+                <li><a href="https://github.com/NyxFeline" target="_blank">GitHub</a></li>
+                <li><a href="mailto:dothieuvy@gmail.com" class="nav-cta glass">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- HERO -->
+        <section id="hero">
+
+            <!-- Gengar SVG silhouette -->
+            <!-- <svg class="gengar-svg" viewBox="0 0 400 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Body -->
+                <!-- <ellipse cx="200" cy="300" rx="140" ry="120" fill="var(--lavender)"/> -->
+                <!-- Head -->
+                <!-- <circle cx="200" cy="180" r="110" fill="var(--lavender)"/> -->
+                <!-- Ears spiky -->
+                <!-- <polygon points="110,100 70,20 140,80" fill="var(--lavender)"/> -->
+                <!-- <polygon points="290,100 330,20 260,80" fill="var(--lavender)"/> -->
+                <!-- Eyes -->
+                <!-- <ellipse cx="162" cy="168" rx="22" ry="28" fill="#cc00ff"/>
+                <ellipse cx="238" cy="168" rx="22" ry="28" fill="#cc00ff"/>
+                <ellipse cx="162" cy="172" rx="10" ry="14" fill="#fff"/>
+                <ellipse cx="238" cy="172" rx="10" ry="14" fill="#fff"/> -->
+                <!-- Grin -->
+                <!-- <path d="M140 220 Q200 270 260 220" stroke="#3b0764" stroke-width="5" fill="none" stroke-linecap="round"/> -->
+                <!-- Teeth -->
+                <!-- <polygon points="158,232 168,255 148,255" fill="#fff"/>
+                <polygon points="182,240 192,263 172,263" fill="#fff"/>
+                <polygon points="208,240 218,263 198,263" fill="#fff"/>
+                <polygon points="232,232 242,255 222,255" fill="#fff"/> -->
+                <!-- Arms -->
+                <!-- <ellipse cx="80" cy="340" rx="55" ry="28" fill="var(--lavender)" transform="rotate(-30 80 340)"/>
+                <ellipse cx="320" cy="340" rx="55" ry="28" fill="var(--lavender)" transform="rotate(30 320 340)"/> -->
+                <!-- Shadow wisp tail -->
+                <!-- <path d="M140 420 Q100 390 120 360 Q100 380 60 400" stroke="var(--lavender)" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.5"/>
+                <path d="M260 420 Q300 390 280 360 Q300 380 340 400" stroke="var(--lavender)" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.5"/> -->
+            <!-- </svg> -->
+            <img class="gengar-svg" src="assets/gengar.png" alt="Gengar" />
+
+            <p class="hero-eyebrow">
+                <span></span> Ghost-type Developer <span></span>
+            </p>
+
+            <h1 class="hero-title">
+                Crafting <em>digital</em><br/>logic from<br/><em>the shadows.</em>
+            </h1>
+
+            <p class="hero-sub">
+                Fullstack Developer focused on React &amp; NestJS.<br/>
+                Third-year Software Engineering student building<br/>
+                haunting, user-centric applications.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary glass">Explore Work</a>
+                <a href="mailto:dothieuvy@gmail.com" class="btn-ghost">
+                Contact Me
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <img class="gengar-svg gengar-left" src="assets/chandelure.png" alt="Gengar" />
+        </section>
+
+        <!-- MARQUEE -->
+        <div class="marquee-wrap">
+            <div class="marquee-track">
+                <!-- doubled for seamless loop -->
+                <span class="marquee-item"><span class="dot">◆</span>NestJS</span>
+                <span class="marquee-item"><span class="dot">◆</span>React</span>
+                <span class="marquee-item"><span class="dot">◆</span>TypeScript</span>
+                <span class="marquee-item"><span class="dot">◆</span>PostgreSQL</span>
+                <span class="marquee-item"><span class="dot">◆</span>Socket.io</span>
+                <span class="marquee-item"><span class="dot">◆</span>Prisma</span>
+                <span class="marquee-item"><span class="dot">◆</span>Docker</span>
+                <span class="marquee-item"><span class="dot">◆</span>MongoDB</span>
+                <span class="marquee-item"><span class="dot">◆</span>NestJS</span>
+                <span class="marquee-item"><span class="dot">◆</span>React</span>
+                <span class="marquee-item"><span class="dot">◆</span>TypeScript</span>
+                <span class="marquee-item"><span class="dot">◆</span>PostgreSQL</span>
+                <span class="marquee-item"><span class="dot">◆</span>Socket.io</span>
+                <span class="marquee-item"><span class="dot">◆</span>Prisma</span>
+                <span class="marquee-item"><span class="dot">◆</span>Docker</span>
+                <span class="marquee-item"><span class="dot">◆</span>MongoDB</span>
+            </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            
+            <div class="section-inner">
+                <div class="projects-header">
+                    <div>
+                        <p class="section-label reveal">Selected Projects</p>
+                        <h2 class="section-title reveal reveal-d1">Haunted<br/>Works.</h2>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Featured: FLOW -->
+                    <div class="project-card glass card-featured reveal">
+                        <div>
+                            <div class="card-tag">
+                                <span>Fullstack · Real-time · In Dev</span>
+                                <a href="https://github.com/NyxFeline/flow_pet_rescue" target="_blank" title="GitHub">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                        <path d="M9 18c-4.51 2-5-2-7-2"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <h3>FLOW<br/>Pet Rescue Ecosystem</h3>
+                            <p>A real-time platform connecting rescuers and adopters, supporting SOS emergency coordination and live interaction. Built with NestJS backend, PostGIS spatial queries, and Socket.io for live updates.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">NestJS</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Socket.io</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Prisma</span>
+                                <span class="tech-tag">PostGIS</span>
+                            </div>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-inner">👻</div>
+                        </div>
+                    </div>
+
+                    <!-- Pikachu -->
+                    <div class="project-card glass reveal reveal-d1">
+                        <div class="card-tag">
+                            <span>Mobile · Game Dev</span>
+                            <a href="https://github.com/NyxFeline/Pikachu_New_Version" target="_blank">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                <path d="M9 18c-4.51 2-5-2-7-2"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <h3>Pikachu Game (Android)</h3>
+                        <p>Classic tile-matching game with custom connection validation algorithm. Implemented scoring, timer, win/lose conditions, and level reset in pure Java — no game engines.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Android Studio</span>
+                            <span class="tech-tag">Algorithm Design</span>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder: Coming Soon -->
+                    <div class="project-card glass reveal reveal-d2" style="display:flex;align-items:center;justify-content:center;min-height:200px;opacity:0.35;">
+                        <div style="text-align:center;">
+                            <div style="font-size:32px;margin-bottom:12px;opacity:0.4;">◆</div>
+                            <p style="font-family:var(--font-display);font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">
+                                Next Project<br/>Materializing…
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <img class="poke-float" 
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png"
+                style="width:clamp(120px,14vw,220px); left:-40px; top:40px; animation-delay:-3s;"
+                alt="" />
+        </section>
+
+        <!-- SKILLS / ABOUT -->
+        <section id="skills">
+            <div class="section-inner">
+                <p class="section-label reveal">About &amp; Stack</p>
+                <div class="skills-layout">
+                    <div class="skills-col reveal">
+                        <h4>Technical Stack</h4>
+                        <ul>
+                            <li>TypeScript / JavaScript</li>
+                            <li>React / HTML / CSS</li>
+                            <li>Node.js (NestJS)</li>
+                            <li>RESTful API Design</li>
+                            <li>PostgreSQL / MongoDB</li>
+                            <li>Prisma ORM</li>
+                            <li>WebSocket (Socket.io)</li>
+                            <li>Docker / Git</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-col reveal reveal-d1">
+                        <h4>Education</h4>
+                        <ul>
+                            <li>Software Engineering</li>
+                            <li>3rd Year — 76% complete</li>
+                            <li>Go Vap District, Ho Chi Minh City, VN</li>
+                            <!-- <li>Go Vap District</li> -->
+                        </ul>
+                        <div style="margin-top:32px;">
+                            <h4 style="margin-bottom:20px;">Activities</h4>
+                            <ul>
+                                <li>Tech workshops &amp; seminars</li>
+                                <li>Open source contributions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skills-col reveal reveal-d2">
+                        <h4>Connect</h4>
+                        <div class="connect-links">
+                            <a href="mailto:dothieuvy@gmail.com" class="connect-link">
+                                <span class="icon">✉</span>
+                                dothieuvy@gmail.com
+                            </a>
+                            <div class="connect-link">
+                                <span class="icon">☎</span>
+                                0981 324 463
+                            </div>
+                        </div>
+                        <div class="social-row">
+                            <a href="https://github.com/NyxFeline" target="_blank" class="social-link">GitHub</a>
+                            <a href="#" class="social-link">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2025 ĐỖ THIỆU VY — GHOST-TYPE DEVELOPER — BUILT WITH SHADOWS &amp; FOCUS</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
