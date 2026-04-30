@@ -852,7 +852,6 @@ footer p {
     #projects { padding: 80px 0; }
     #skills   { padding: 70px 0; }
 
-    /* Section wrapper căn giữa theo chiều ngang, nội dung bên trong left-align */
     .section-inner { 
         padding: 0 20px;
         max-width: 100%;
@@ -876,13 +875,11 @@ footer p {
     .skills-col li { font-size: 14px; }
     .marquee-item  { font-size: 10px; padding: 0 24px; }
 
-    /* Section label: giữ icon + text nhưng không căn giữa cả block */
     .section-label { 
         margin-bottom: 44px;
         justify-content: flex-start;
     }
 
-    /* Skills và connect: luôn left-align */
     .skills-layout {
         text-align: left;
     }
@@ -892,12 +889,10 @@ footer p {
         align-items: flex-start;
     }
 
-    /* Tech tags wrap tự nhiên từ trái */
     .tech-tags {
         justify-content: flex-start;
     }
 
-    /* Contact links left-align */
     .connect-links {
         align-items: flex-start;
     }
@@ -932,7 +927,6 @@ footer p {
     .mobile-nav-links li a { font-size: 19px; padding: 16px 24px; }
     .mobile-nav-bottom { padding: 20px 24px 8px; }
 
-    /* Đảm bảo mọi text nội dung left-align trên màn nhỏ */
     .project-card h3,
     .project-card p,
     .skills-col,

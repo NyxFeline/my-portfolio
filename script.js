@@ -112,8 +112,6 @@ window.addEventListener('scroll', () => {
     })();
 })();
 
-// ─── translations + i18n phải khai báo TRƯỚC initAnime ───────────────────────
-
 const translations = {
     en: {
         'nav.projects': 'Projects',
@@ -238,8 +236,6 @@ if (currentLang === 'vi') {
     setTimeout(() => applyLang('vi'), 50);
 }
 
-// ─── initAnime (giờ translations đã tồn tại) ─────────────────────────────────
-
 (function initAnime() {
     if (typeof anime === 'undefined') return;
 
@@ -363,8 +359,6 @@ if (currentLang === 'vi') {
         titleObs.observe(projectTitle);
     }
 })();
-
-// ─── Mobile nav ───────────────────────────────────────────────────────────────
 
 (function initMobile() {
 
