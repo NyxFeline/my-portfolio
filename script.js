@@ -70,7 +70,6 @@ window.addEventListener('scroll', () => {
         starPos[i * 3] = (Math.random() - 0.5) * 50;
         starPos[i * 3 + 1] = (Math.random() - 0.5) * 50;
         starPos[i * 3 + 2] = (Math.random() - 0.5) * 30 - 5;
-        // Random: white, sky-blue, or lavender tint
         const t = Math.random();
         if (t < 0.5) { starColor[i * 3] = 0.85; starColor[i * 3 + 1] = 0.9; starColor[i * 3 + 2] = 1.0; }
         else if (t < 0.8) { starColor[i * 3] = 0.49; starColor[i * 3 + 1] = 0.83; starColor[i * 3 + 2] = 0.98; }
@@ -105,141 +104,15 @@ window.addEventListener('scroll', () => {
     (function animate() {
         requestAnimationFrame(animate);
         clock.t += 0.006;
-
         starMat.opacity = 0.75 + Math.sin(clock.t * 0.5) * 0.1;
-
         camera.position.x += (mouseX * 0.8 - camera.position.x) * 0.03;
         camera.position.y += (-mouseY * 0.5 - camera.position.y) * 0.03;
         camera.lookAt(scene.position);
-
         renderer.render(scene, camera);
     })();
 })();
 
-(function initAnime() {
-    if (typeof anime === 'undefined') return;
-
-    const eyebrowEl = document.querySelector('[data-i18n="hero.eyebrow"]');
-    if (eyebrowEl) {
-        const originalText = eyebrowEl.textContent;
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&';
-
-        function scramble(el, finalText, duration = 1600) {
-            let startTime = null;
-            const totalFrames = duration / 16;
-            let frame = 0;
-            function tick() {
-                frame++;
-                const progress = frame / totalFrames;
-                const revealCount = Math.floor(progress * finalText.length);
-                let result = '';
-                for (let i = 0; i < finalText.length; i++) {
-                    if (i < revealCount) {
-                        result += finalText[i];
-                    } else if (finalText[i] === ' ') {
-                        result += ' ';
-                    } else {
-                        result += chars[Math.floor(Math.random() * chars.length)];
-                    }
-                }
-                el.textContent = result;
-                if (frame < totalFrames) requestAnimationFrame(tick);
-                else el.textContent = finalText;
-            }
-            requestAnimationFrame(tick);
-        }
-
-        setTimeout(() => scramble(eyebrowEl, originalText, 1800), 800);
-    }
-
-    const titleLines = document.querySelectorAll('h1.hero-title span[data-i18n]');
-    titleLines.forEach((line, li) => {
-        line.style.opacity = '1';
-        line.style.animation = 'none';
-
-        const rawHTML = line.innerHTML;
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(`<div>${rawHTML}</div>`, 'text/html');
-        const container = doc.querySelector('div');
-
-        function wrapWords(node, out) {
-            node.childNodes.forEach(child => {
-                if (child.nodeType === Node.TEXT_NODE) {
-                    child.textContent.split(/(\s+)/).forEach(word => {
-                        if (!word) return;
-                        if (/^\s+$/.test(word)) { out.push(document.createTextNode(word)); return; }
-                        const s = document.createElement('span');
-                        s.className = 'word';
-                        s.style.cssText = 'display:inline-block; overflow:hidden; vertical-align:bottom;';
-                        const inner = document.createElement('span');
-                        inner.style.cssText = 'display:inline-block; transform:translateY(100%);';
-                        inner.textContent = word;
-                        s.appendChild(inner);
-                        out.push(s);
-                    });
-                } else if (child.nodeName === 'EM') {
-                    const em = document.createElement('em');
-                    em.style.fontStyle = 'normal';
-                    const text = child.textContent.trim();
-                    const s = document.createElement('span');
-                    s.className = 'word';
-                    s.style.cssText = 'display:inline-block; overflow:hidden; vertical-align:bottom;';
-                    const inner = document.createElement('span');
-                    inner.style.cssText = 'display:inline-block; transform:translateY(100%);';
-                    inner.textContent = text;
-                    em.appendChild(inner);
-                    s.appendChild(em);
-                    out.push(s);
-                }
-            });
-        }
-
-        const nodes = [];
-        wrapWords(container, nodes);
-        line.innerHTML = '';
-        nodes.forEach(n => line.appendChild(n));
-
-        // Animate all inner spans
-        const inners = Array.from(line.querySelectorAll('.word > span, .word > em > span'));
-        anime({
-            targets: inners,
-            translateY: ['100%', '0%'],
-            opacity: [0, 1],
-            easing: 'cubicBezier(0.22, 1, 0.36, 1)',
-            duration: 900,
-            delay: anime.stagger(80, { start: 400 + li * 200 }),
-        });
-    });
-
-    const projectTitle = document.querySelector('h2.section-title');
-    if (projectTitle) {
-        const chars = '░▒▓█▄▀■□◆◇○●';
-        const finalText = projectTitle.textContent.replace(/\s+/g, ' ').trim();
-        const titleObs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (!e.isIntersecting) return;
-                titleObs.disconnect();
-                let frame = 0;
-                const totalFrames = 60;
-                function tick() {
-                    frame++;
-                    const progress = frame / totalFrames;
-                    const revealCount = Math.floor(progress * finalText.length);
-                    let result = '';
-                    for (let i = 0; i < finalText.length; i++) {
-                        if (i < revealCount || finalText[i] === '\n') result += finalText[i];
-                        else result += chars[Math.floor(Math.random() * chars.length)];
-                    }
-                    projectTitle.textContent = result;
-                    if (frame < totalFrames) requestAnimationFrame(tick);
-                    else projectTitle.innerHTML = "Things<br/>I've Built.";
-                }
-                tick();
-            });
-        }, { threshold: 0.3 });
-        titleObs.observe(projectTitle);
-    }
-})();
+// ─── translations + i18n phải khai báo TRƯỚC initAnime ───────────────────────
 
 const translations = {
     en: {
@@ -262,7 +135,7 @@ const translations = {
         'projects.pikachu.desc': 'A tile-matching Android game built from scratch in Java. I implemented the tile connection validation logic myself, along with the scoring system, countdown timer, win/lose conditions, and level reset - no game engines used.',
         'projects.research.tag': 'Research · Co-author · Published',
         'projects.research.title': 'Automating SDLC<br/>Documentation (IoT)',
-        'projects.research.desc': 'Supported a research group on Multi-Agent Systems. Contributed to writing and standardizing technical documentation for the system\'s implementation phase.',
+        'projects.research.desc': "Supported a research group on Multi-Agent Systems. Contributed to writing and standardizing technical documentation for the system's implementation phase.",
         'projects.assembly.tag': 'Web · Game Development',
         'projects.assembly.title': 'Assembly Panic: Glitched Machine',
         'projects.assembly.desc': 'A 2D web arcade game built solo for a Game Jam using Phaser 3. Full game architecture from scratch - GlitchManager that reverses player controls, EventBus for cross-scene communication, combo scoring with progressive difficulty.',
@@ -323,40 +196,181 @@ const HTML_KEYS = new Set([
     'projects.flow.title', 'projects.research.title',
 ]);
 
+const TEXT_ONLY_KEYS = new Set(['projects.title']);
+
 function applyLang(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
     const t = translations[lang];
+
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (!t[key]) return;
-        if (HTML_KEYS.has(key)) {
+
+        if (TEXT_ONLY_KEYS.has(key)) {
+            el.textContent = t[key];
+        } else if (HTML_KEYS.has(key)) {
             el.innerHTML = t[key];
         } else {
             el.textContent = t[key];
         }
     });
-    document.getElementById('langEN').classList.toggle('lang-active', lang === 'en');
-    document.getElementById('langVI').classList.toggle('lang-active', lang === 'vi');
+
+    const langEN = document.getElementById('langEN');
+    const langVI = document.getElementById('langVI');
+    if (langEN) langEN.classList.toggle('lang-active', lang === 'en');
+    if (langVI) langVI.classList.toggle('lang-active', lang === 'vi');
+
+    const mLangEN = document.getElementById('mobileLangEN');
+    const mLangVI = document.getElementById('mobileLangVI');
+    if (mLangEN) mLangEN.classList.toggle('lang-active', lang === 'en');
+    if (mLangVI) mLangVI.classList.toggle('lang-active', lang === 'vi');
+
     document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
 }
 
 document.getElementById('langSwitch').addEventListener('click', () => {
     applyLang(currentLang === 'en' ? 'vi' : 'en');
 });
-applyLang(currentLang);
+
+applyLang('en');
+if (currentLang === 'vi') {
+    setTimeout(() => applyLang('vi'), 50);
+}
+
+// ─── initAnime (giờ translations đã tồn tại) ─────────────────────────────────
+
+(function initAnime() {
+    if (typeof anime === 'undefined') return;
+
+    const eyebrowEl = document.querySelector('[data-i18n="hero.eyebrow"]');
+    if (eyebrowEl) {
+        const originalText = translations['en']['hero.eyebrow'];
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&';
+
+        function scramble(el, finalText, duration = 1600) {
+            const totalFrames = duration / 16;
+            let frame = 0;
+            function tick() {
+                frame++;
+                const progress = frame / totalFrames;
+                const revealCount = Math.floor(progress * finalText.length);
+                let result = '';
+                for (let i = 0; i < finalText.length; i++) {
+                    if (i < revealCount) result += finalText[i];
+                    else if (finalText[i] === ' ') result += ' ';
+                    else result += chars[Math.floor(Math.random() * chars.length)];
+                }
+                el.textContent = result;
+                if (frame < totalFrames) requestAnimationFrame(tick);
+                else el.textContent = finalText;
+            }
+            requestAnimationFrame(tick);
+        }
+
+        setTimeout(() => scramble(eyebrowEl, originalText, 1800), 800);
+    }
+
+    const titleLines = document.querySelectorAll('h1.hero-title span[data-i18n]');
+    titleLines.forEach((line, li) => {
+        line.style.opacity = '1';
+        line.style.animation = 'none';
+
+        const rawHTML = line.innerHTML;
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(`<div>${rawHTML}</div>`, 'text/html');
+        const container = doc.querySelector('div');
+
+        function wrapWords(node, out) {
+            node.childNodes.forEach(child => {
+                if (child.nodeType === Node.TEXT_NODE) {
+                    child.textContent.split(/(\s+)/).forEach(word => {
+                        if (!word) return;
+                        if (/^\s+$/.test(word)) { out.push(document.createTextNode(word)); return; }
+                        const s = document.createElement('span');
+                        s.className = 'word';
+                        s.style.cssText = 'display:inline-block; overflow:hidden; vertical-align:bottom;';
+                        const inner = document.createElement('span');
+                        inner.style.cssText = 'display:inline-block; transform:translateY(100%);';
+                        inner.textContent = word;
+                        s.appendChild(inner);
+                        out.push(s);
+                    });
+                } else if (child.nodeName === 'EM') {
+                    const em = document.createElement('em');
+                    em.style.fontStyle = 'normal';
+                    const text = child.textContent.trim();
+                    const s = document.createElement('span');
+                    s.className = 'word';
+                    s.style.cssText = 'display:inline-block; overflow:hidden; vertical-align:bottom;';
+                    const inner = document.createElement('span');
+                    inner.style.cssText = 'display:inline-block; transform:translateY(100%);';
+                    inner.textContent = text;
+                    em.appendChild(inner);
+                    s.appendChild(em);
+                    out.push(s);
+                }
+            });
+        }
+
+        const nodes = [];
+        wrapWords(container, nodes);
+        line.innerHTML = '';
+        nodes.forEach(n => line.appendChild(n));
+
+        const inners = Array.from(line.querySelectorAll('.word > span, .word > em > span'));
+        anime({
+            targets: inners,
+            translateY: ['100%', '0%'],
+            opacity: [0, 1],
+            easing: 'cubicBezier(0.22, 1, 0.36, 1)',
+            duration: 900,
+            delay: anime.stagger(80, { start: 400 + li * 200 }),
+        });
+    });
+
+    const projectTitle = document.querySelector('h2.section-title');
+    if (projectTitle) {
+        const finalHTML = "Things I've Built.";
+        const finalText = finalHTML;
+        const chars = '░▒▓█▄▀■□◆◇○●';
+
+        const titleObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                titleObs.disconnect();
+                let frame = 0;
+                const totalFrames = 60;
+                function tick() {
+                    frame++;
+                    const progress = frame / totalFrames;
+                    const revealCount = Math.floor(progress * finalText.length);
+                    let result = '';
+                    for (let i = 0; i < finalText.length; i++) {
+                        if (i < revealCount) result += finalText[i];
+                        else result += chars[Math.floor(Math.random() * chars.length)];
+                    }
+                    projectTitle.textContent = result;
+                    if (frame < totalFrames) requestAnimationFrame(tick);
+                    else {
+                        projectTitle.textContent = finalHTML;
+                        applyLang(currentLang);
+                    }
+                }
+                tick();
+            });
+        }, { threshold: 0.3 });
+        titleObs.observe(projectTitle);
+    }
+})();
+
+// ─── Mobile nav ───────────────────────────────────────────────────────────────
 
 (function initMobile() {
-    function buildMobileNav() {
-        const nav = document.querySelector('nav');
-        if (!nav) return;
 
-        const hamburger = document.createElement('button');
-        hamburger.className = 'hamburger';
-        hamburger.setAttribute('aria-label', 'Toggle menu');
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.innerHTML = `<span></span><span></span><span></span>`;
-        nav.appendChild(hamburger);
+    function buildMobileNav() {
+        const hamburger = document.getElementById('hamburgerBtn');
+        if (!hamburger) return null;
 
         const overlay = document.createElement('div');
         overlay.className = 'mobile-nav-overlay';
@@ -367,51 +381,33 @@ applyLang(currentLang);
         drawer.setAttribute('aria-label', 'Mobile navigation');
         drawer.innerHTML = `
             <div class="mobile-nav-inner">
-                <div class="mobile-nav-header">
-                    <span>Navigation</span>
-                </div>
- 
-                <ul class="mobile-nav-links">
-                    <li>
-                        <a href="#projects" data-i18n="nav.projects">
-                            <span class="nav-idx">01</span>
-                            Projects
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#skills" data-i18n="nav.stack">
-                            <span class="nav-idx">02</span>
-                            Stack
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/NyxFeline" target="_blank" rel="noopener">
-                            GitHub
-                        </a>
-                    </li>
-                </ul>
- 
-                <div class="mobile-nav-cta-wrap">
-                    <a href="mailto:dothieuvy@gmail.com" class="mobile-nav-cta" data-i18n="nav.contact">
-                        Contact
-                    </a>
-                </div>
- 
-                <div class="mobile-nav-footer">
-                    <span class="mobile-lang-label">Language</span>
-                    <button class="lang-switch" id="mobileLangSwitch" aria-label="Switch language">
-                        <span class="lang-option lang-active" id="mobileLangEN">EN</span>
-                        <span class="lang-divider">/</span>
-                        <span class="lang-option" id="mobileLangVI">VI</span>
+                <div class="mobile-nav-topbar">
+                    <span class="mobile-nav-logo">NyxFeline<sup style="font-size:8px;opacity:0.65;">®</sup></span>
+                    <button class="mobile-nav-x" id="mobileNavX" aria-label="Close menu">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
                     </button>
+                </div>
+                <ul class="mobile-nav-links">
+                    <li><a href="#projects" data-i18n="nav.projects"><span class="nav-idx">01</span>Projects</a></li>
+                    <li><a href="#skills" data-i18n="nav.stack"><span class="nav-idx">02</span>Stack</a></li>
+                    <li><a href="https://github.com/NyxFeline" target="_blank" rel="noopener" data-i18n="nav.github">GitHub</a></li>
+                </ul>
+                <div class="mobile-nav-bottom">
+                    <a href="mailto:dothieuvy@gmail.com" class="mobile-nav-cta" data-i18n="nav.contact">Contact</a>
+                    <div class="mobile-nav-footer-row">
+                        <span class="mobile-lang-label">Language</span>
+                        <button class="lang-switch" id="mobileLangSwitch" aria-label="Switch language">
+                            <span class="lang-option lang-active" id="mobileLangEN">EN</span>
+                            <span class="lang-divider">/</span>
+                            <span class="lang-option" id="mobileLangVI">VI</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         `;
         document.body.appendChild(drawer);
 
-        if (typeof applyLang === 'function') {
-            applyLang(localStorage.getItem('lang') || 'en');
-        }
+        applyLang(currentLang);
 
         return { hamburger, overlay, drawer };
     }
@@ -429,9 +425,9 @@ applyLang(currentLang);
 
             drawer.querySelectorAll('.mobile-nav-links li').forEach((li, i) => {
                 li.style.opacity = '0';
-                li.style.transform = 'translateX(20px)';
-                li.style.transition = `opacity 0.28s ease ${0.06 + i * 0.07}s,
-                                       transform 0.32s cubic-bezier(0.22,1,0.36,1) ${0.06 + i * 0.07}s`;
+                li.style.transform = 'translateX(-20px)';
+                li.style.transition = `opacity 0.28s ease ${0.08 + i * 0.07}s,
+                                       transform 0.32s cubic-bezier(0.22,1,0.36,1) ${0.08 + i * 0.07}s`;
                 requestAnimationFrame(() => {
                     li.style.opacity = '1';
                     li.style.transform = 'translateX(0)';
@@ -450,14 +446,25 @@ applyLang(currentLang);
 
         hamburger.addEventListener('click', () => isOpen ? closeDrawer() : openDrawer());
         overlay.addEventListener('click', closeDrawer);
+
+        const xBtn = drawer.querySelector('#mobileNavX');
+        if (xBtn) xBtn.addEventListener('click', closeDrawer);
+
         drawer.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', closeDrawer));
         document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) closeDrawer(); });
         window.addEventListener('resize', () => { if (window.innerWidth > 900 && isOpen) closeDrawer(); }, { passive: true });
 
+        const mobileLangSwitch = drawer.querySelector('#mobileLangSwitch');
+        if (mobileLangSwitch) {
+            mobileLangSwitch.addEventListener('click', () => {
+                applyLang(currentLang === 'en' ? 'vi' : 'en');
+            });
+        }
+
         return { closeDrawer };
     }
 
-    function initSwipeClose({ drawer, overlay, hamburger }, { closeDrawer }) {
+    function initSwipeClose({ drawer }, { closeDrawer }) {
         let startX = 0, dragging = false;
         drawer.addEventListener('touchstart', e => {
             startX = e.touches[0].clientX;
@@ -466,82 +473,16 @@ applyLang(currentLang);
         }, { passive: true });
         drawer.addEventListener('touchmove', e => {
             if (!dragging) return;
-            const dx = e.touches[0].clientX - startX;
-            if (dx > 0) drawer.style.transform = `translateX(${Math.min(dx, 250)}px)`;
+            const dx = startX - e.touches[0].clientX;
+            if (dx > 0) drawer.style.transform = `translateX(${-Math.min(dx, 250)}px)`;
         }, { passive: true });
         drawer.addEventListener('touchend', e => {
             dragging = false;
             drawer.style.transition = '';
-            const dx = e.changedTouches[0].clientX - startX;
-            if (dx > 72) {
-                closeDrawer();
-            } else {
-                drawer.style.transform = '';
-            }
+            const dx = startX - e.changedTouches[0].clientX;
+            if (dx > 72) closeDrawer();
+            else drawer.style.transform = '';
         }, { passive: true });
-    }
-
-    function syncMobileLang() {
-        const mainSwitch = document.getElementById('langSwitch');
-        const mobileSwitch = document.getElementById('mobileLangSwitch');
-        if (!mainSwitch || !mobileSwitch) return;
-
-        function updateIndicator(lang) {
-            document.getElementById('mobileLangEN')?.classList.toggle('lang-active', lang === 'en');
-            document.getElementById('mobileLangVI')?.classList.toggle('lang-active', lang === 'vi');
-        }
-
-        updateIndicator(localStorage.getItem('lang') || 'en');
-
-        mobileSwitch.addEventListener('click', () => {
-            mainSwitch.click();
-            updateIndicator(localStorage.getItem('lang') || 'en');
-        });
-
-        const langEN = document.getElementById('langEN');
-        if (langEN) {
-            new MutationObserver(() => {
-                updateIndicator(langEN.classList.contains('lang-active') ? 'en' : 'vi');
-            }).observe(langEN, { attributes: true, attributeFilter: ['class'] });
-        }
-    }
-
-    function patchApplyLangForTitle() {
-        const TEXT_ONLY_KEYS = new Set(['projects.title']);
-        const origApplyLang = window.applyLang;
-        if (typeof origApplyLang !== 'function') return;
-
-        window.applyLang = function (lang) {
-            origApplyLang(lang);
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (!TEXT_ONLY_KEYS.has(key)) return;
-                el.textContent = el.textContent.trim();
-            });
-        };
-    }
-
-    function fixViewportHeight() {
-        const set = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-        set();
-        window.addEventListener('resize', set, { passive: true });
-    }
-
-    function patchSmoothScroll() {
-        if ('scrollBehavior' in document.documentElement.style) return;
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                const target = document.querySelector(a.getAttribute('href'));
-                if (!target) return;
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-    }
-
-    function optimiseForTouch() {
-        if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
-        document.querySelectorAll('.orb').forEach(o => o.style.animationDuration = '24s');
     }
 
     const els = buildMobileNav();
@@ -549,10 +490,32 @@ applyLang(currentLang);
         const controls = initDrawer(els);
         initSwipeClose(els, controls);
     }
-    patchApplyLangForTitle();
-    syncMobileLang();
-    fixViewportHeight();
-    patchSmoothScroll();
-    optimiseForTouch();
 
 })();
+
+function fixViewportHeight() {
+    const set = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    set();
+    window.addEventListener('resize', set, { passive: true });
+}
+
+function patchSmoothScroll() {
+    if ('scrollBehavior' in document.documentElement.style) return;
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+}
+
+function optimiseForTouch() {
+    if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+    document.querySelectorAll('.orb').forEach(o => o.style.animationDuration = '24s');
+}
+
+fixViewportHeight();
+patchSmoothScroll();
+optimiseForTouch();

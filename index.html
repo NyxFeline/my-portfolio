@@ -9,7 +9,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="style.css">
-        
     </head>
 
     <body>
@@ -23,8 +22,8 @@
         <nav>
             <a href="" class="logo">NyxFeline<sup>®</sup></a>
             <ul class="nav-links">
-                <li><a href="projects" data-i18n="nav.projects">Projects</a></li>
-                <li><a href="skills"   data-i18n="nav.stack">Stack</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#skills" data-i18n="nav.stack">Stack</a></li>
                 <li><a href="https://github.com/NyxFeline" target="_blank">GitHub</a></li>
                 <li><a href="mailto:dothieuvy@gmail.com" class="nav-cta glass" data-i18n="nav.contact">Contact</a></li>
             </ul>
@@ -33,12 +32,15 @@
                 <span class="lang-divider">/</span>
                 <span class="lang-option" id="langVI">VI</span>
             </button>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
 
         <section id="hero">
             <canvas id="space-canvas"></canvas>
 
-            <img class="gengar-svg chandelure-top-left gengar-svg" src="assets/chandelure.png" alt="Chandelure" />
+            <img class="gengar-svg chandelure-top-left" src="assets/chandelure.png" alt="Chandelure" />
 
             <p class="hero-eyebrow">
                 <span></span>
@@ -103,7 +105,7 @@
                     </div>
                 </div>
 
-                <div class="projects-grid">
+                <div class="projects-grid" id="projectsGrid">
 
                     <a href="https://github.com/NyxFeline/flow_pet_rescue"
                         target="_blank"
@@ -196,7 +198,7 @@
                         </div>
                     </a>
 
-                    <div class="project-card glass reveal reveal-d2" style="display:flex;align-items:center;justify-content:center;min-height:200px;opacity:0.35;">
+                    <div class="project-card glass reveal reveal-d2 coming-soon-card" style="display:flex;align-items:center;justify-content:center;min-height:200px;opacity:0.35;">
                         <div style="text-align:center;">
                             <div style="font-size:32px;margin-bottom:12px;opacity:0.4;">◆</div>
                             <p style="font-family:var(--font-display);font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">
@@ -205,6 +207,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -250,11 +253,20 @@
                         <h4 data-i18n="skills.contact.title">Contact</h4>
                         <div class="connect-links">
                             <a href="mailto:dothieuvy@gmail.com" class="connect-link">
-                                <span class="icon">✉</span>
+                                <span class="icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                    </svg>
+                                </span>
                                 dothieuvy@gmail.com
                             </a>
                             <div class="connect-link">
-                                <span class="icon">☎</span>
+                                <span class="icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/>
+                                    </svg>
+                                </span>
                                 0981 324 463
                             </div>
                         </div>
@@ -272,9 +284,7 @@
         </footer>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
-
         <script src="script.js"></script>
     </body>
 </html>
