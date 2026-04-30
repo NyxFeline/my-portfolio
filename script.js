@@ -1,11 +1,3 @@
-/* ══════════════════════════════════════════════════
-   NyxFeline Portfolio - script.js (Redesigned)
-   - Three.js: 3D space + Pokemon constellation scene
-   - anime.js: splitText hero title, scrambleText eyebrow
-   - Cursor, scroll reveal, nav pill, i18n
-══════════════════════════════════════════════════ */
-
-/* ── CURSOR ── */
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
 let mx = 0, my = 0, rx = 0, ry = 0;
@@ -30,19 +22,16 @@ document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseleave', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; });
 });
 
-/* ── NAV SCROLL ── */
 const navEl = document.querySelector('nav');
 window.addEventListener('scroll', () => {
     navEl.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-/* ── SCROLL REVEAL ── */
 const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* ── PARALLAX ORBS ── */
 window.addEventListener('scroll', () => {
     const y = window.scrollY;
     const o1 = document.querySelector('.orb-1');
@@ -51,10 +40,6 @@ window.addEventListener('scroll', () => {
     if (o2) o2.style.transform = `translateY(${-y * 0.1}px)`;
 }, { passive: true });
 
-/* ══════════════════════════════════════════════════
-   THREE.JS: SPACE SCENE with POKEMON CONSTELLATIONS
-   Particles + Stars + SVG Pokemon drawn with lines
-══════════════════════════════════════════════════ */
 (function initSpaceScene() {
     const canvas = document.getElementById('space-canvas');
     if (!canvas || typeof THREE === 'undefined') return;
@@ -77,7 +62,6 @@ window.addEventListener('scroll', () => {
     resize();
     window.addEventListener('resize', resize);
 
-    /* ── STARFIELD ── */
     const starCount = 1800;
     const starGeo = new THREE.BufferGeometry();
     const starPos = new Float32Array(starCount * 3);
@@ -97,7 +81,6 @@ window.addEventListener('scroll', () => {
     const starMat = new THREE.PointsMaterial({ size: 0.035, vertexColors: true, transparent: true, opacity: 0.85 });
     scene.add(new THREE.Points(starGeo, starMat));
 
-    /* ── FLOATING DUST PARTICLES ── */
     const dustCount = 400;
     const dustGeo = new THREE.BufferGeometry();
     const dustPos = new Float32Array(dustCount * 3);
@@ -112,23 +95,19 @@ window.addEventListener('scroll', () => {
     });
     scene.add(new THREE.Points(dustGeo, dustMat));
 
-    /* ── MOUSE PARALLAX ── */
     let mouseX = 0, mouseY = 0;
     document.addEventListener('mousemove', e => {
         mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
         mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
     });
 
-    /* ── RENDER LOOP ── */
     let clock = { t: 0 };
     (function animate() {
         requestAnimationFrame(animate);
         clock.t += 0.006;
 
-        // Starfield gentle drift
         starMat.opacity = 0.75 + Math.sin(clock.t * 0.5) * 0.1;
 
-        // Camera parallax from mouse
         camera.position.x += (mouseX * 0.8 - camera.position.x) * 0.03;
         camera.position.y += (-mouseY * 0.5 - camera.position.y) * 0.03;
         camera.lookAt(scene.position);
@@ -137,13 +116,9 @@ window.addEventListener('scroll', () => {
     })();
 })();
 
-/* ══════════════════════════════════════════════════
-   ANIME.JS: splitText hero title + scrambleText eyebrow
-══════════════════════════════════════════════════ */
 (function initAnime() {
     if (typeof anime === 'undefined') return;
 
-    /* ── 1. SCRAMBLE TEXT on eyebrow badge ── */
     const eyebrowEl = document.querySelector('[data-i18n="hero.eyebrow"]');
     if (eyebrowEl) {
         const originalText = eyebrowEl.textContent;
@@ -174,24 +149,19 @@ window.addEventListener('scroll', () => {
             requestAnimationFrame(tick);
         }
 
-        // Trigger scramble after initial CSS animation settles
         setTimeout(() => scramble(eyebrowEl, originalText, 1800), 800);
     }
 
-    /* ── 2. SPLIT TEXT on hero title (word-by-word rise) ── */
     const titleLines = document.querySelectorAll('h1.hero-title span[data-i18n]');
     titleLines.forEach((line, li) => {
-        // Cancel CSS animation so anime controls it
         line.style.opacity = '1';
         line.style.animation = 'none';
 
-        // Parse text + em tags into words
         const rawHTML = line.innerHTML;
         const parser = new DOMParser();
         const doc = parser.parseFromString(`<div>${rawHTML}</div>`, 'text/html');
         const container = doc.querySelector('div');
 
-        // Wrap every word in a span
         function wrapWords(node, out) {
             node.childNodes.forEach(child => {
                 if (child.nodeType === Node.TEXT_NODE) {
@@ -241,7 +211,6 @@ window.addEventListener('scroll', () => {
         });
     });
 
-    /* ── 3. SCRAMBLE on project section title ── */
     const projectTitle = document.querySelector('h2.section-title');
     if (projectTitle) {
         const chars = '░▒▓█▄▀■□◆◇○●';
@@ -272,9 +241,6 @@ window.addEventListener('scroll', () => {
     }
 })();
 
-/* ══════════════════════════════════════════════════
-   i18n
-══════════════════════════════════════════════════ */
 const translations = {
     en: {
         'nav.projects': 'Projects',
@@ -352,6 +318,11 @@ const translations = {
 
 let currentLang = localStorage.getItem('lang') || 'en';
 
+const HTML_KEYS = new Set([
+    'hero.title.line1', 'hero.title.line2',
+    'projects.flow.title', 'projects.research.title',
+]);
+
 function applyLang(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
@@ -359,7 +330,11 @@ function applyLang(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (!t[key]) return;
-        el.innerHTML = t[key];
+        if (HTML_KEYS.has(key)) {
+            el.innerHTML = t[key];
+        } else {
+            el.textContent = t[key];
+        }
     });
     document.getElementById('langEN').classList.toggle('lang-active', lang === 'en');
     document.getElementById('langVI').classList.toggle('lang-active', lang === 'vi');
@@ -370,3 +345,214 @@ document.getElementById('langSwitch').addEventListener('click', () => {
     applyLang(currentLang === 'en' ? 'vi' : 'en');
 });
 applyLang(currentLang);
+
+(function initMobile() {
+    function buildMobileNav() {
+        const nav = document.querySelector('nav');
+        if (!nav) return;
+
+        const hamburger = document.createElement('button');
+        hamburger.className = 'hamburger';
+        hamburger.setAttribute('aria-label', 'Toggle menu');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.innerHTML = `<span></span><span></span><span></span>`;
+        nav.appendChild(hamburger);
+
+        const overlay = document.createElement('div');
+        overlay.className = 'mobile-nav-overlay';
+        document.body.appendChild(overlay);
+
+        const drawer = document.createElement('aside');
+        drawer.className = 'mobile-nav-drawer';
+        drawer.setAttribute('aria-label', 'Mobile navigation');
+        drawer.innerHTML = `
+            <div class="mobile-nav-inner">
+                <div class="mobile-nav-header">
+                    <span>Navigation</span>
+                </div>
+ 
+                <ul class="mobile-nav-links">
+                    <li>
+                        <a href="#projects" data-i18n="nav.projects">
+                            <span class="nav-idx">01</span>
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skills" data-i18n="nav.stack">
+                            <span class="nav-idx">02</span>
+                            Stack
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/NyxFeline" target="_blank" rel="noopener">
+                            GitHub
+                        </a>
+                    </li>
+                </ul>
+ 
+                <div class="mobile-nav-cta-wrap">
+                    <a href="mailto:dothieuvy@gmail.com" class="mobile-nav-cta" data-i18n="nav.contact">
+                        Contact
+                    </a>
+                </div>
+ 
+                <div class="mobile-nav-footer">
+                    <span class="mobile-lang-label">Language</span>
+                    <button class="lang-switch" id="mobileLangSwitch" aria-label="Switch language">
+                        <span class="lang-option lang-active" id="mobileLangEN">EN</span>
+                        <span class="lang-divider">/</span>
+                        <span class="lang-option" id="mobileLangVI">VI</span>
+                    </button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(drawer);
+
+        if (typeof applyLang === 'function') {
+            applyLang(localStorage.getItem('lang') || 'en');
+        }
+
+        return { hamburger, overlay, drawer };
+    }
+
+    function initDrawer({ hamburger, overlay, drawer }) {
+        let isOpen = false;
+
+        function openDrawer() {
+            isOpen = true;
+            hamburger.classList.add('open');
+            hamburger.setAttribute('aria-expanded', 'true');
+            overlay.classList.add('open');
+            drawer.classList.add('open');
+            document.body.style.overflow = 'hidden';
+
+            drawer.querySelectorAll('.mobile-nav-links li').forEach((li, i) => {
+                li.style.opacity = '0';
+                li.style.transform = 'translateX(20px)';
+                li.style.transition = `opacity 0.28s ease ${0.06 + i * 0.07}s,
+                                       transform 0.32s cubic-bezier(0.22,1,0.36,1) ${0.06 + i * 0.07}s`;
+                requestAnimationFrame(() => {
+                    li.style.opacity = '1';
+                    li.style.transform = 'translateX(0)';
+                });
+            });
+        }
+
+        function closeDrawer() {
+            isOpen = false;
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            overlay.classList.remove('open');
+            drawer.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', () => isOpen ? closeDrawer() : openDrawer());
+        overlay.addEventListener('click', closeDrawer);
+        drawer.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', closeDrawer));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) closeDrawer(); });
+        window.addEventListener('resize', () => { if (window.innerWidth > 900 && isOpen) closeDrawer(); }, { passive: true });
+
+        return { closeDrawer };
+    }
+
+    function initSwipeClose({ drawer, overlay, hamburger }, { closeDrawer }) {
+        let startX = 0, dragging = false;
+        drawer.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+            dragging = true;
+            drawer.style.transition = 'none';
+        }, { passive: true });
+        drawer.addEventListener('touchmove', e => {
+            if (!dragging) return;
+            const dx = e.touches[0].clientX - startX;
+            if (dx > 0) drawer.style.transform = `translateX(${Math.min(dx, 250)}px)`;
+        }, { passive: true });
+        drawer.addEventListener('touchend', e => {
+            dragging = false;
+            drawer.style.transition = '';
+            const dx = e.changedTouches[0].clientX - startX;
+            if (dx > 72) {
+                closeDrawer();
+            } else {
+                drawer.style.transform = '';
+            }
+        }, { passive: true });
+    }
+
+    function syncMobileLang() {
+        const mainSwitch = document.getElementById('langSwitch');
+        const mobileSwitch = document.getElementById('mobileLangSwitch');
+        if (!mainSwitch || !mobileSwitch) return;
+
+        function updateIndicator(lang) {
+            document.getElementById('mobileLangEN')?.classList.toggle('lang-active', lang === 'en');
+            document.getElementById('mobileLangVI')?.classList.toggle('lang-active', lang === 'vi');
+        }
+
+        updateIndicator(localStorage.getItem('lang') || 'en');
+
+        mobileSwitch.addEventListener('click', () => {
+            mainSwitch.click();
+            updateIndicator(localStorage.getItem('lang') || 'en');
+        });
+
+        const langEN = document.getElementById('langEN');
+        if (langEN) {
+            new MutationObserver(() => {
+                updateIndicator(langEN.classList.contains('lang-active') ? 'en' : 'vi');
+            }).observe(langEN, { attributes: true, attributeFilter: ['class'] });
+        }
+    }
+
+    function patchApplyLangForTitle() {
+        const TEXT_ONLY_KEYS = new Set(['projects.title']);
+        const origApplyLang = window.applyLang;
+        if (typeof origApplyLang !== 'function') return;
+
+        window.applyLang = function (lang) {
+            origApplyLang(lang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (!TEXT_ONLY_KEYS.has(key)) return;
+                el.textContent = el.textContent.trim();
+            });
+        };
+    }
+
+    function fixViewportHeight() {
+        const set = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        set();
+        window.addEventListener('resize', set, { passive: true });
+    }
+
+    function patchSmoothScroll() {
+        if ('scrollBehavior' in document.documentElement.style) return;
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (!target) return;
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    }
+
+    function optimiseForTouch() {
+        if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+        document.querySelectorAll('.orb').forEach(o => o.style.animationDuration = '24s');
+    }
+
+    const els = buildMobileNav();
+    if (els) {
+        const controls = initDrawer(els);
+        initSwipeClose(els, controls);
+    }
+    patchApplyLangForTitle();
+    syncMobileLang();
+    fixViewportHeight();
+    patchSmoothScroll();
+    optimiseForTouch();
+
+})();

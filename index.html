@@ -4,28 +4,27 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Đỗ Thiệu Vy - Portfolio</title>
+        <link rel="icon" type="image/png" href="assets/logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="style.css">
+        
     </head>
 
     <body>
-        <!-- Cursor -->
         <div id="cursor"></div>
         <div id="cursor-ring"></div>
 
-        <!-- Ghost orbs -->
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
 
-        <!-- NAV (pill bubble) -->
         <nav>
-            <a href="#home" class="logo">NyxFeline<sup>®</sup></a>
+            <a href="" class="logo">NyxFeline<sup>®</sup></a>
             <ul class="nav-links">
-                <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-                <li><a href="#skills"   data-i18n="nav.stack">Stack</a></li>
+                <li><a href="projects" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="skills"   data-i18n="nav.stack">Stack</a></li>
                 <li><a href="https://github.com/NyxFeline" target="_blank">GitHub</a></li>
                 <li><a href="mailto:dothieuvy@gmail.com" class="nav-cta glass" data-i18n="nav.contact">Contact</a></li>
             </ul>
@@ -36,9 +35,7 @@
             </button>
         </nav>
 
-        <!-- HERO -->
         <section id="hero">
-            <!-- Three.js space canvas with Pokemon -->
             <canvas id="space-canvas"></canvas>
 
             <img class="gengar-svg chandelure-top-left gengar-svg" src="assets/chandelure.png" alt="Chandelure" />
@@ -71,7 +68,6 @@
             <img class="gengar-svg" src="assets/gengar.png" alt="Gengar" />
         </section>
 
-        <!-- MARQUEE -->
         <div class="marquee-wrap">
             <div class="marquee-track">
                 <span class="marquee-item"><span class="dot">◆</span>NestJS</span>
@@ -93,7 +89,6 @@
             </div>
         </div>
 
-        <!-- PROJECTS -->
         <section id="projects" style="position:relative;">
             <img class="poke-float"
                 src="assets/Umbreon.png"
@@ -110,7 +105,6 @@
 
                 <div class="projects-grid">
 
-                    <!-- FLOW -->
                     <a href="https://github.com/NyxFeline/flow_pet_rescue"
                         target="_blank"
                         class="project-card glass reveal"
@@ -138,7 +132,6 @@
                         </div>
                     </a>
 
-                    <!-- Pikachu -->
                     <a href="https://github.com/NyxFeline/Pikachu_New_Version"
                         target="_blank"
                         class="project-card glass reveal reveal-d1"
@@ -159,7 +152,6 @@
                         </div>
                     </a>
 
-                    <!-- Research / MAS Documentation -->
                     <div class="project-card glass reveal reveal-d2" style="display:block;">
                         <div class="card-tag">
                             <span data-i18n="projects.research.tag">Research · Co-author · Published</span>
@@ -204,7 +196,6 @@
                         </div>
                     </a>
 
-                    <!-- Placeholder -->
                     <div class="project-card glass reveal reveal-d2" style="display:flex;align-items:center;justify-content:center;min-height:200px;opacity:0.35;">
                         <div style="text-align:center;">
                             <div style="font-size:32px;margin-bottom:12px;opacity:0.4;">◆</div>
@@ -217,7 +208,6 @@
             </div>
         </section>
 
-        <!-- SKILLS / ABOUT -->
         <section id="skills" style="position:relative;">
             <img class="poke-float"
                 src="assets/Zoroark.png"
@@ -277,15 +267,12 @@
             </div>
         </section>
 
-        <!-- FOOTER -->
         <footer>
             <p data-i18n="footer.text">© 2025 ĐỖ THIỆU VY - SOFTWARE ENGINEERING STUDENT</p>
         </footer>
 
-        <!-- THREE.JS (r128 - stable) -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-        <!-- ANIME.JS v3 -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 
         <script src="script.js"></script>
