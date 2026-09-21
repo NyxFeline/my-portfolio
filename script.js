@@ -114,76 +114,178 @@ window.addEventListener('scroll', () => {
 
 const translations = {
     en: {
+        'nav.experience': 'Experience',
         'nav.projects': 'Projects',
         'nav.stack': 'Stack',
         'nav.contact': 'Contact',
         'hero.eyebrow': 'Frontend-focused Developer',
         'hero.title.line1': 'Building <em>ideas</em>',
         'hero.title.line2': 'into real <em>products.</em>',
-        'hero.sub': "I'm Thiệu Vy - a third-year Software Engineering student who enjoys building interfaces that are clean and easy to use. I work across the stack, with a growing focus on the frontend.",
-        'hero.cta.work': 'View My Work',
+        'hero.sub': "Final-year Software Engineering student focused on Frontend and Web development. Experienced with Odoo, TypeScript, JavaScript, and React. Proactive, analytical thinker with a strong focus on deliverable quality and performance.",
+        'hero.cta.exp': 'View Experience',
+        'hero.cta.work': 'View Projects',
         'hero.cta.contact': 'Get In Touch',
+
+        'experience.label': 'Work Experience',
+        'experience.title': "Where I've Contributed.",
+        'exp.company.badge': 'Internship',
+        'exp.company.date': '06/2026 - 09/2026',
+        'exp.company.name': 'TIS International School',
+        'exp.company.role': 'Frontend Developer Intern',
+        'exp.company.summary': 'Contributed to the development and standardization of enterprise survey modules on the Odoo platform, refining UI interactions and user flows.',
+        'exp.bullet.1': 'Analyzed business requirements, directly developed and perfected the Survey feature compatible across both Odoo 15 and Odoo 19 versions.',
+        'exp.bullet.2': 'Standardized the entire UI/UX and user interaction flow for survey forms, making the experience intuitive and minimizing user input errors.',
+        'exp.bullet.3': 'Distributed detailed technical tasks to team members, ensuring feature milestones were delivered on schedule.',
+        'exp.bullet.4': 'Conducted cross-testing, proactively refactored and optimized frontend source code throughout the system development lifecycle.',
+        'exp.carousel.headline': 'Key Achievements & Highlights',
+
+        'exp.card1.tag': 'Feature Development · Odoo Multi-version',
+        'exp.card1.title': 'Odoo 15 & 19 Survey Engine',
+        'exp.card1.desc': 'Analyzed business requirements, architected modular survey components, and ensured seamless multi-version compatibility across Odoo 15 and Odoo 19.',
+        'exp.card1.m1': 'Odoo 15/19 Compatible',
+        'exp.card1.m2': 'Direct Implementation',
+
+        'exp.card2.tag': 'UX/UI Optimization · User Flow',
+        'exp.card2.title': 'Interface & Interaction Standardization',
+        'exp.card2.desc': 'Revamped the visual presentation and interaction flow for survey completion, significantly improving usability and reducing submission errors.',
+        'exp.card2.m1': 'Streamlined User Flow',
+        'exp.card2.m2': 'Input Validation',
+
+        'exp.card3.tag': 'Technical Leadership · Collaboration',
+        'exp.card3.title': 'Task Breakdown & Team Delivery',
+        'exp.card3.desc': 'Proactively broke down complex requirements into granular tasks for teammates, conducted regular reviews, and met all delivery milestones.',
+        'exp.card3.m1': 'Milestone Delivery',
+        'exp.card3.m2': 'Task Distribution',
+
+        'exp.card4.tag': 'QA & Optimization · Code Refactor',
+        'exp.card4.title': 'Cross-Testing & Code Quality',
+        'exp.card4.desc': 'Performed thorough cross-testing across components, resolved edge-case bugs, and optimized code maintainability and rendering speed.',
+        'exp.card4.m1': 'Code Maintainability',
+        'exp.card4.m2': 'Bug Resolution',
+
         'projects.label': 'Selected Projects',
         'projects.title': "Things I've Built.",
-        'projects.flow.tag': 'Fullstack · Real-time · In Development',
-        'projects.flow.title': 'FLOW<br/>Pet Rescue Platform',
-        'projects.flow.desc': 'A platform that connects pet rescuers and adopters in real time. Users can send SOS alerts, coordinate rescues, and communicate live. Built with a NestJS backend, PostGIS for location queries, and Socket.io for real-time updates.',
+        'projects.somnia.tag': 'Web Game · B1T Jam 5 · 1-Bit Aesthetic',
+        'projects.somnia.title': 'Somnia Hotel (B1T Jam 5)',
+        'projects.somnia.desc': 'A 1-bit narrative web game crafted for B1T Jam 5 under the theme "Sleep". Players navigate through a surreal dreamlike hotel, solving puzzles and uncovering mysteries with strict 2-color palette visual constraints.',
         'projects.pikachu.tag': 'Mobile · Game Development',
         'projects.pikachu.title': 'Pikachu Game (Android)',
         'projects.pikachu.desc': 'A tile-matching Android game built from scratch in Java. I implemented the tile connection validation logic myself, along with the scoring system, countdown timer, win/lose conditions, and level reset - no game engines used.',
         'projects.research.tag': 'Research · Co-author · Published',
         'projects.research.title': 'Automating SDLC<br/>Documentation (IoT)',
         'projects.research.desc': "Supported a research group on Multi-Agent Systems. Contributed to writing and standardizing technical documentation for the system's implementation phase.",
-        'projects.assembly.tag': 'Web · Game Development',
+        'projects.assembly.tag': 'Web Game · Gamedev.js Jam 2026 · Arcade',
         'projects.assembly.title': 'Assembly Panic: Glitched Machine',
-        'projects.assembly.desc': 'A 2D web arcade game built solo for a Game Jam using Phaser 3. Full game architecture from scratch - GlitchManager that reverses player controls, EventBus for cross-scene communication, combo scoring with progressive difficulty.',
+        'projects.assembly.desc': 'A 2D web arcade game built solo for Gamedev.js Jam 2026 using Phaser 3. Full game architecture from scratch - GlitchManager that reverses player controls, EventBus for cross-scene communication, combo scoring with progressive difficulty.',
+
         'skills.label': 'About & Stack',
         'skills.tech.title': 'Technical Stack',
+        'skills.cat.lang': 'Languages',
+        'skills.cat.fe': 'Frontend & Frameworks',
+        'skills.cat.be': 'Backend Basics',
+        'skills.cat.tools': 'Tools & Workflow',
+
         'skills.edu.title': 'Education',
+        'skills.edu.school': 'Van Lang University',
         'skills.edu.major': 'Software Engineering',
-        'skills.edu.year': '3rd Year - GPA: 3.4/4.0',
-        'skills.edu.location': 'Ho Chi Minh City, Vietnam',
-        'skills.activities.title': 'Activities',
-        'skills.activities.workshops': 'Tech workshops & seminars',
-        'skills.activities.oss': 'Open source contributions',
+        'skills.edu.year': '4th Year (Senior) · GPA: 3.4/4.0',
+        'skills.edu.period': '2023 - Present',
+
+        'skills.soft.title': 'Soft Skills',
+        'skills.soft.english': 'English (Technical documentation reading)',
+        'skills.soft.teamwork': 'Teamwork & Cross-functional Collaboration',
+        'skills.soft.problem': 'Problem Solving & Analytical Thinking',
+        'skills.soft.time': 'Time Management & Accountability',
+
         'skills.contact.title': 'Contact',
-        'footer.text': '© 2025 ĐỖ THIỆU VY - SOFTWARE ENGINEERING STUDENT',
+        'footer.text': '© 2026 ĐỖ THIỆU VY - FINAL-YEAR SOFTWARE ENGINEERING STUDENT',
     },
     vi: {
+        'nav.experience': 'Kinh Nghiệm',
         'nav.projects': 'Dự Án',
         'nav.stack': 'Kỹ Năng',
         'nav.contact': 'Liên Hệ',
         'hero.eyebrow': 'Lập Trình Viên Hướng Frontend',
         'hero.title.line1': 'Biến <em>ý tưởng</em>',
         'hero.title.line2': 'thành <em>sản phẩm.</em>',
-        'hero.sub': 'Mình là Thiệu Vy - sinh viên Kỹ thuật Phần mềm năm 3, thích xây dựng giao diện gọn gàng và dễ dùng. Mình làm fullstack nhưng đang tập trung nhiều hơn vào frontend.',
+        'hero.sub': 'Sinh viên năm cuối ngành Kỹ thuật Phần mềm, định hướng Frontend và Web. Có kinh nghiệm với Odoo, TypeScript, JavaScript và React. Chủ động, tư duy phân tích tốt và tập trung vào hiệu quả công việc.',
+        'hero.cta.exp': 'Xem Kinh Nghiệm',
         'hero.cta.work': 'Xem Dự Án',
         'hero.cta.contact': 'Liên Hệ Ngay',
+
+        'experience.label': 'Kinh Nghiệm Làm Việc',
+        'experience.title': 'Hành Trình & Kinh Nghiệm.',
+        'exp.company.badge': 'Thực tập',
+        'exp.company.date': '06/2026 - 09/2026',
+        'exp.company.name': 'Trường Quốc Tế TIS',
+        'exp.company.role': 'Thực tập sinh Frontend',
+        'exp.company.summary': 'Tham gia phát triển hệ thống khảo sát doanh nghiệp trên nền tảng Odoo, tối ưu hóa giao diện người dùng và chuẩn hóa luồng tương tác thực tế.',
+        'exp.bullet.1': 'Phân tích yêu cầu nghiệp vụ, trực tiếp phát triển và hoàn thiện tính năng Survey/Khảo sát tương thích trên cả hai phiên bản Odoo 15 và Odoo 19.',
+        'exp.bullet.2': 'Chuẩn hóa toàn bộ giao diện và luồng tương tác người dùng cho tính năng khảo sát, giúp trải nghiệm trực quan và giảm thiểu thao tác lỗi.',
+        'exp.bullet.3': 'Phân chia đầu việc kỹ thuật chi tiết cho các thành viên trong nhóm, bảo đảm tiến độ bàn giao chức năng đúng hạn cam kết.',
+        'exp.bullet.4': 'Kiểm thử chéo, chủ động xử lý và tối ưu mã nguồn giao diện trong suốt chu kỳ phát triển hệ thống.',
+        'exp.carousel.headline': 'Thành Tựu & Dấu Ấn Trọng Tâm',
+
+        'exp.card1.tag': 'Phát triển Tính năng · Đa phiên bản Odoo',
+        'exp.card1.title': 'Hệ thống Khảo sát Odoo 15 & 19',
+        'exp.card1.desc': 'Phân tích yêu cầu nghiệp vụ và trực tiếp thiết kế, triển khai tính năng Survey đa phiên bản tương thích liền mạch trên Odoo 15 và Odoo 19 với cấu trúc module hóa cao.',
+        'exp.card1.m1': 'Tương thích Odoo 15/19',
+        'exp.card1.m2': 'Trực tiếp phát triển',
+
+        'exp.card2.tag': 'Tối ưu UI/UX · Luồng tương tác',
+        'exp.card2.title': 'Chuẩn hóa Giao diện & Trải nghiệm',
+        'exp.card2.desc': 'Chuẩn hóa toàn bộ thiết kế giao diện khảo sát và luồng tương tác người dùng, giúp giao diện trực quan, rõ ràng và giảm thiểu tối đa các thao tác gây lỗi.',
+        'exp.card2.m1': 'Luồng tương tác tối ưu',
+        'exp.card2.m2': 'Hạn chế lỗi thao tác',
+
+        'exp.card3.tag': 'Quản lý Công việc · Làm việc Nhóm',
+        'exp.card3.title': 'Phân chia Đầu việc & Bàn giao',
+        'exp.card3.desc': 'Chủ động phân chia đầu việc kỹ thuật cụ thể cho các thành viên trong nhóm, theo dõi tiến độ và cam kết bàn giao các tính năng đúng hạn đề ra.',
+        'exp.card3.m1': 'Bàn giao đúng hạn',
+        'exp.card3.m2': 'Phân bổ việc hiệu quả',
+
+        'exp.card4.tag': 'Kiểm thử QA · Tối ưu Mã nguồn',
+        'exp.card4.title': 'Kiểm thử Chéo & Tối ưu Giao diện',
+        'exp.card4.desc': 'Thực hiện kiểm thử chéo chuyên sâu, chủ động phát hiện bug và tối ưu cấu trúc mã nguồn giao diện trong suốt vòng đời phát triển của dự án.',
+        'exp.card4.m1': 'Mã nguồn dễ bảo trì',
+        'exp.card4.m2': 'Chủ động xử lý bug',
+
         'projects.label': 'Dự Án Nổi Bật',
         'projects.title': 'Những Thứ Mình Đã Xây.',
-        'projects.flow.tag': 'Fullstack · Thời gian thực · Đang phát triển',
-        'projects.flow.title': 'FLOW<br/>Nền tảng Cứu hộ Thú cưng',
-        'projects.flow.desc': 'Nền tảng kết nối người cứu hộ và nhận nuôi thú cưng theo thời gian thực. Người dùng có thể gửi cảnh báo SOS, phối hợp cứu hộ và liên lạc trực tiếp. Backend NestJS, PostGIS cho truy vấn vị trí, Socket.io cho cập nhật thời gian thực.',
+        'projects.somnia.tag': 'Web Game · B1T Jam 5 · Phong cách 1-Bit',
+        'projects.somnia.title': 'Somnia Hotel (B1T Jam 5)',
+        'projects.somnia.desc': 'Tựa game 2D mang phong cách 1-bit được phát triển cho B1T Jam 5 (Chủ đề: Giấc ngủ - Sleep). Người chơi khám phá một khách sạn kỳ bí trong cõi mộng, giải các câu đố và vượt qua thử thách với giới hạn đồ họa 2 màu tối giản đậm chất cổ điển.',
         'projects.pikachu.tag': 'Mobile · Lập trình Game',
         'projects.pikachu.title': 'Game Pikachu (Android)',
         'projects.pikachu.desc': 'Game xếp hình Android viết từ đầu bằng Java. Tự xây dựng logic kiểm tra kết nối ô, hệ thống điểm, đồng hồ đếm ngược, điều kiện thắng/thua và reset màn - không dùng game engine.',
         'projects.research.tag': 'Nghiên cứu · Đồng tác giả · Đã xuất bản',
         'projects.research.title': 'Tự động hóa Tài liệu SDLC (IoT)',
         'projects.research.desc': 'Hỗ trợ nhóm nghiên cứu về Hệ thống Đa tác tử. Đóng góp viết và chuẩn hóa tài liệu kỹ thuật cho giai đoạn triển khai hệ thống.',
-        'projects.assembly.tag': 'Web · Lập trình Game',
+        'projects.assembly.tag': 'Web Game · Gamedev.js Jam 2026 · Arcade',
         'projects.assembly.title': 'Assembly Panic: Glitched Machine',
-        'projects.assembly.desc': 'Game arcade 2D web xây solo cho Game Jam bằng Phaser 3. Thiết kế toàn bộ kiến trúc game - GlitchManager đảo chiều điều khiển người chơi, EventBus cho giao tiếp liên scene, hệ thống combo với độ khó tăng dần.',
+        'projects.assembly.desc': 'Game arcade 2D web xây solo khi tham gia Gamedev.js Jam 2026 bằng Phaser 3. Thiết kế toàn bộ kiến trúc game - GlitchManager đảo chiều điều khiển người chơi, EventBus cho giao tiếp liên scene, hệ thống combo với độ khó tăng dần.',
+
         'skills.label': 'Giới thiệu & Kỹ năng',
-        'skills.tech.title': 'Công nghệ sử dụng',
-        'skills.edu.title': 'Học vấn',
-        'skills.edu.major': 'Kỹ thuật Phần mềm',
-        'skills.edu.year': 'Năm 3 - GPA: 3.4/4.0',
-        'skills.edu.location': 'TP. Hồ Chí Minh, Việt Nam',
-        'skills.activities.title': 'Hoạt động',
-        'skills.activities.workshops': 'Workshop & hội thảo công nghệ',
-        'skills.activities.oss': 'Đóng góp mã nguồn mở',
-        'skills.contact.title': 'Liên hệ',
-        'footer.text': '© 2025 ĐỖ THIỆU VY - SINH VIÊN KỸ THUẬT PHẦN MỀM',
+        'skills.tech.title': 'Kỹ Năng Chuyên Môn',
+        'skills.cat.lang': 'Ngôn ngữ lập trình',
+        'skills.cat.fe': 'Frontend & Frameworks',
+        'skills.cat.be': 'Backend cơ bản',
+        'skills.cat.tools': 'Công cụ quản lý & Làm việc',
+
+        'skills.edu.title': 'Học Vấn',
+        'skills.edu.school': 'Trường Đại Học Văn Lang',
+        'skills.edu.major': 'Kỹ Thuật Phần Mềm',
+        'skills.edu.year': 'Năm 4 (Năm cuối) · GPA: 3.4/4.0',
+        'skills.edu.period': '2023 - hiện tại',
+
+        'skills.soft.title': 'Kỹ Năng Mềm',
+        'skills.soft.english': 'Ngoại ngữ: Tiếng Anh (Đọc hiểu tài liệu kỹ thuật)',
+        'skills.soft.teamwork': 'Làm việc nhóm & Giao tiếp kỹ thuật',
+        'skills.soft.problem': 'Tư duy phân tích & Giải quyết vấn đề',
+        'skills.soft.time': 'Quản lý thời gian & Trách nhiệm công việc',
+
+        'skills.contact.title': 'Liên Hệ',
+        'footer.text': '© 2026 ĐỖ THIỆU VY - SINH VIÊN NĂM CUỐI KỸ THUẬT PHẦN MỀM',
     }
 };
 
@@ -191,10 +293,10 @@ let currentLang = localStorage.getItem('lang') || 'en';
 
 const HTML_KEYS = new Set([
     'hero.title.line1', 'hero.title.line2',
-    'projects.flow.title', 'projects.research.title',
+    'projects.somnia.title', 'projects.research.title',
 ]);
 
-const TEXT_ONLY_KEYS = new Set(['projects.title']);
+const TEXT_ONLY_KEYS = new Set(['projects.title', 'experience.title']);
 
 function applyLang(lang) {
     currentLang = lang;
@@ -235,6 +337,74 @@ applyLang('en');
 if (currentLang === 'vi') {
     setTimeout(() => applyLang('vi'), 50);
 }
+
+// -------------------------------------------------------------
+// EXPERIENCE CAROUSEL / CARD SWITCHER LOGIC
+// -------------------------------------------------------------
+(function initExpCarousel() {
+    const cards = document.querySelectorAll('.exp-feature-card');
+    const dots = document.querySelectorAll('.exp-dot');
+    const prevBtn = document.getElementById('expPrevBtn');
+    const nextBtn = document.getElementById('expNextBtn');
+    const counterEl = document.getElementById('expCardCounter');
+    const stage = document.getElementById('expCardStage');
+
+    if (!cards.length) return;
+
+    let currentIndex = 0;
+    const total = cards.length;
+
+    function showCard(index) {
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+        currentIndex = index;
+
+        cards.forEach((card, i) => {
+            if (i === currentIndex) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+
+        if (counterEl) {
+            counterEl.textContent = `0${currentIndex + 1} / 0${total}`;
+        }
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => showCard(currentIndex - 1));
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => showCard(currentIndex + 1));
+    }
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => showCard(i));
+    });
+
+    // Touch swipe support
+    if (stage) {
+        let touchStartX = 0;
+        stage.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        stage.addEventListener('touchend', e => {
+            const touchEndX = e.changedTouches[0].screenX;
+            const diff = touchEndX - touchStartX;
+            if (diff > 45) {
+                showCard(currentIndex - 1);
+            } else if (diff < -45) {
+                showCard(currentIndex + 1);
+            }
+        }, { passive: true });
+    }
+})();
 
 (function initAnime() {
     if (typeof anime === 'undefined') return;
@@ -325,39 +495,39 @@ if (currentLang === 'vi') {
         });
     });
 
-    const projectTitle = document.querySelector('h2.section-title');
-    if (projectTitle) {
-        const finalHTML = "Things I've Built.";
-        const finalText = finalHTML;
+    const sectionTitles = document.querySelectorAll('h2.section-title');
+    sectionTitles.forEach(titleEl => {
+        const key = titleEl.getAttribute('data-i18n');
         const chars = '░▒▓█▄▀■□◆◇○●';
 
         const titleObs = new IntersectionObserver(entries => {
             entries.forEach(e => {
                 if (!e.isIntersecting) return;
                 titleObs.disconnect();
+                const targetText = (translations[currentLang] && translations[currentLang][key]) ? translations[currentLang][key] : titleEl.textContent;
                 let frame = 0;
-                const totalFrames = 60;
+                const totalFrames = 50;
                 function tick() {
                     frame++;
                     const progress = frame / totalFrames;
-                    const revealCount = Math.floor(progress * finalText.length);
+                    const revealCount = Math.floor(progress * targetText.length);
                     let result = '';
-                    for (let i = 0; i < finalText.length; i++) {
-                        if (i < revealCount) result += finalText[i];
+                    for (let i = 0; i < targetText.length; i++) {
+                        if (i < revealCount) result += targetText[i];
                         else result += chars[Math.floor(Math.random() * chars.length)];
                     }
-                    projectTitle.textContent = result;
+                    titleEl.textContent = result;
                     if (frame < totalFrames) requestAnimationFrame(tick);
                     else {
-                        projectTitle.textContent = finalHTML;
+                        titleEl.textContent = targetText;
                         applyLang(currentLang);
                     }
                 }
                 tick();
             });
         }, { threshold: 0.3 });
-        titleObs.observe(projectTitle);
-    }
+        titleObs.observe(titleEl);
+    });
 })();
 
 (function initMobile() {
@@ -382,9 +552,10 @@ if (currentLang === 'vi') {
                     </button>
                 </div>
                 <ul class="mobile-nav-links">
-                    <li><a href="#projects" data-i18n="nav.projects"><span class="nav-idx">01</span>Projects</a></li>
-                    <li><a href="#skills" data-i18n="nav.stack"><span class="nav-idx">02</span>Stack</a></li>
-                    <li><a href="https://github.com/NyxFeline" target="_blank" rel="noopener" data-i18n="nav.github">GitHub</a></li>
+                    <li><a href="#experience" data-i18n="nav.experience"><span class="nav-idx">01</span>Experience</a></li>
+                    <li><a href="#projects" data-i18n="nav.projects"><span class="nav-idx">02</span>Projects</a></li>
+                    <li><a href="#skills" data-i18n="nav.stack"><span class="nav-idx">03</span>Stack</a></li>
+                    <li><a href="https://github.com/NyxFeline" target="_blank" rel="noopener">GitHub</a></li>
                 </ul>
                 <div class="mobile-nav-bottom">
                     <a href="mailto:dothieuvy@gmail.com" class="mobile-nav-cta" data-i18n="nav.contact">Contact</a>

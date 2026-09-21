@@ -1,290 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Đỗ Thiệu Vy - Portfolio</title>
-        <link rel="icon" type="image/png" href="assets/logo.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="style.css">
-    </head>
 
-    <body>
-        <div id="cursor"></div>
-        <div id="cursor-ring"></div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đỗ Thiệu Vy - Portfolio</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
+<body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
 
-        <nav>
-            <a href="" class="logo">NyxFeline<sup>®</sup></a>
-            <ul class="nav-links">
-                <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-                <li><a href="#skills" data-i18n="nav.stack">Stack</a></li>
-                <li><a href="https://github.com/NyxFeline" target="_blank">GitHub</a></li>
-                <li><a href="mailto:dothieuvy@gmail.com" class="nav-cta glass" data-i18n="nav.contact">Contact</a></li>
-            </ul>
-            <button class="lang-switch" id="langSwitch" aria-label="Switch language">
-                <span class="lang-option lang-active" id="langEN">EN</span>
-                <span class="lang-divider">/</span>
-                <span class="lang-option" id="langVI">VI</span>
-            </button>
-            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-        </nav>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-        <section id="hero">
-            <canvas id="space-canvas"></canvas>
+    <nav>
+        <a href="" class="logo">NyxFeline<sup>®</sup></a>
+        <ul class="nav-links">
+            <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="#skills" data-i18n="nav.stack">Stack</a></li>
+            <li><a href="https://github.com/NyxFeline" target="_blank">GitHub</a></li>
+            <li><a href="mailto:dothieuvy@gmail.com" class="nav-cta glass" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="lang-switch" id="langSwitch" aria-label="Switch language">
+            <span class="lang-option lang-active" id="langEN">EN</span>
+            <span class="lang-divider">/</span>
+            <span class="lang-option" id="langVI">VI</span>
+        </button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
 
-            <img class="gengar-svg chandelure-top-left" src="assets/chandelure.png" alt="Chandelure" />
+    <section id="hero">
+        <canvas id="space-canvas"></canvas>
 
-            <p class="hero-eyebrow">
-                <span></span>
-                <span data-i18n="hero.eyebrow">Frontend-focused Developer</span>
-                <span></span>
-            </p>
+        <img class="gengar-svg chandelure-top-left" src="assets/chandelure.png" alt="Chandelure" />
 
-            <h1 class="hero-title">
-                <span data-i18n="hero.title.line1">Building <em>ideas</em></span><br/>
-                <span data-i18n="hero.title.line2">into real <em>products.</em></span>
-            </h1>
+        <p class="hero-eyebrow">
+            <span></span>
+            <span data-i18n="hero.eyebrow">Frontend-focused Developer</span>
+            <span></span>
+        </p>
 
-            <p class="hero-sub" data-i18n="hero.sub">
-                I'm Thiệu Vy - a third-year Software Engineering student
-                who enjoys building interfaces that are clean and easy to use.
-                I work across the stack, with a growing focus on the frontend.
-            </p>
+        <h1 class="hero-title">
+            <span data-i18n="hero.title.line1">Building <em>ideas</em></span><br />
+            <span data-i18n="hero.title.line2">into real <em>products.</em></span>
+        </h1>
 
-            <div class="hero-actions">
-                <a href="#projects" class="btn-primary glass" data-i18n="hero.cta.work">View My Work</a>
-                <a href="mailto:dothieuvy@gmail.com" class="btn-ghost">
-                    <span data-i18n="hero.cta.contact">Get In Touch</span>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-            </div>
+        <p class="hero-sub" data-i18n="hero.sub">
+            Final-year Software Engineering student focused on Frontend and Web development.
+            Experienced with Odoo, TypeScript, JavaScript, and React.
+            Proactive, analytical thinker with a strong focus on deliverable quality and performance.
+        </p>
 
-            <img class="gengar-svg" src="assets/gengar.png" alt="Gengar" />
-        </section>
-
-        <div class="marquee-wrap">
-            <div class="marquee-track">
-                <span class="marquee-item"><span class="dot">◆</span>NestJS</span>
-                <span class="marquee-item"><span class="dot">◆</span>React</span>
-                <span class="marquee-item"><span class="dot">◆</span>TypeScript</span>
-                <span class="marquee-item"><span class="dot">◆</span>PostgreSQL</span>
-                <span class="marquee-item"><span class="dot">◆</span>Socket.io</span>
-                <span class="marquee-item"><span class="dot">◆</span>Prisma</span>
-                <span class="marquee-item"><span class="dot">◆</span>Docker</span>
-                <span class="marquee-item"><span class="dot">◆</span>MongoDB</span>
-                <span class="marquee-item"><span class="dot">◆</span>NestJS</span>
-                <span class="marquee-item"><span class="dot">◆</span>React</span>
-                <span class="marquee-item"><span class="dot">◆</span>TypeScript</span>
-                <span class="marquee-item"><span class="dot">◆</span>PostgreSQL</span>
-                <span class="marquee-item"><span class="dot">◆</span>Socket.io</span>
-                <span class="marquee-item"><span class="dot">◆</span>Prisma</span>
-                <span class="marquee-item"><span class="dot">◆</span>Docker</span>
-                <span class="marquee-item"><span class="dot">◆</span>MongoDB</span>
-            </div>
+        <div class="hero-actions">
+            <a href="#experience" class="btn-primary glass" data-i18n="hero.cta.exp">View Experience</a>
+            <a href="#projects" class="btn-ghost">
+                <span data-i18n="hero.cta.work">View Projects</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
         </div>
 
-        <section id="projects" style="position:relative;">
-            <img class="poke-float"
-                src="assets/Umbreon.png"
-                style="width:clamp(120px,14vw,220px); left:-40px; top:40px; animation-delay:-3s;"
-                alt="" />
+        <img class="gengar-svg" src="assets/gengar.png" alt="Gengar" />
+    </section>
 
-            <div class="section-inner">
-                <div class="projects-header">
-                    <div>
-                        <p class="section-label reveal" data-i18n="projects.label">Selected Projects</p>
-                        <h2 class="section-title reveal reveal-d1" data-i18n="projects.title">Things I've Built.</h2>
+    <div class="marquee-wrap">
+        <div class="marquee-track">
+            <span class="marquee-item"><span class="dot">◆</span>React</span>
+            <span class="marquee-item"><span class="dot">◆</span>TypeScript</span>
+            <span class="marquee-item"><span class="dot">◆</span>JavaScript</span>
+            <span class="marquee-item"><span class="dot">◆</span>Odoo Framework</span>
+            <span class="marquee-item"><span class="dot">◆</span>QWeb &amp; XML</span>
+            <span class="marquee-item"><span class="dot">◆</span>HTML / CSS</span>
+            <span class="marquee-item"><span class="dot">◆</span>Node.js</span>
+            <span class="marquee-item"><span class="dot">◆</span>Python</span>
+            <span class="marquee-item"><span class="dot">◆</span>Git &amp; GitHub</span>
+            <span class="marquee-item"><span class="dot">◆</span>React</span>
+            <span class="marquee-item"><span class="dot">◆</span>TypeScript</span>
+            <span class="marquee-item"><span class="dot">◆</span>JavaScript</span>
+            <span class="marquee-item"><span class="dot">◆</span>Odoo Framework</span>
+            <span class="marquee-item"><span class="dot">◆</span>QWeb &amp; XML</span>
+            <span class="marquee-item"><span class="dot">◆</span>HTML / CSS</span>
+            <span class="marquee-item"><span class="dot">◆</span>Node.js</span>
+            <span class="marquee-item"><span class="dot">◆</span>Python</span>
+            <span class="marquee-item"><span class="dot">◆</span>Git &amp; GitHub</span>
+        </div>
+    </div>
+
+    <section id="experience">
+        <div class="section-inner">
+            <div class="projects-header">
+                <div>
+                    <p class="section-label reveal" data-i18n="experience.label">Work Experience</p>
+                    <h2 class="section-title reveal reveal-d1" data-i18n="experience.title">Where I've Contributed.</h2>
+                </div>
+            </div>
+
+            <div class="exp-wrapper reveal">
+                <!-- Left overview card -->
+                <div class="exp-company-card glass">
+                    <div class="exp-badge-row">
+                        <span class="exp-company-badge" data-i18n="exp.company.badge">Internship</span>
+                        <span class="exp-date-badge" data-i18n="exp.company.date">06/2026 - 09/2026</span>
+                    </div>
+                    <h3 class="exp-company-name" data-i18n="exp.company.name">Trường Quốc Tế TIS</h3>
+                    <h4 class="exp-role-title" data-i18n="exp.company.role">Thực tập sinh Frontend</h4>
+
+                    <p class="exp-overview-text" data-i18n="exp.company.summary">
+                        Tham gia phát triển hệ thống khảo sát doanh nghiệp trên nền tảng Odoo, tối ưu hóa giao diện
+                        người dùng và chuẩn hóa luồng tương tác thực tế.
+                    </p>
+
+                    <ul class="exp-bullet-list">
+                        <li data-i18n="exp.bullet.1">Phân tích yêu cầu nghiệp vụ, trực tiếp phát triển và hoàn thiện
+                            tính năng Survey/Khảo sát tương thích trên cả hai phiên bản Odoo 15 và Odoo 19.</li>
+                        <li data-i18n="exp.bullet.2">Chuẩn hóa toàn bộ giao diện và luồng tương tác người dùng cho tính
+                            năng khảo sát, giúp trải nghiệm trực quan và giảm thiểu thao tác lỗi.</li>
+                        <li data-i18n="exp.bullet.3">Phân chia đầu việc kỹ thuật chi tiết cho các thành viên trong nhóm,
+                            bảo đảm tiến độ bàn giao chức năng đúng hạn cam kết.</li>
+                        <li data-i18n="exp.bullet.4">Kiểm thử chéo, chủ động xử lý và tối ưu mã nguồn giao diện trong
+                            suốt chu kỳ phát triển hệ thống.</li>
+                    </ul>
+
+                    <div class="exp-tags-cluster">
+                        <span class="tech-tag">Odoo 15 &amp; 19</span>
+                        <span class="tech-tag">QWeb / XML</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">UI/UX</span>
+                        <span class="tech-tag">Teamwork</span>
                     </div>
                 </div>
 
-                <div class="projects-grid" id="projectsGrid">
+                <!-- Right interactive card switcher -->
+                <div class="exp-carousel-container glass">
+                    <div class="exp-carousel-header">
+                        <div class="exp-carousel-nav-title">
+                            <span class="exp-indicator-icon">✦</span>
+                            <span data-i18n="exp.carousel.headline">Key Achievements &amp; Highlights</span>
+                        </div>
+                        <div class="exp-counter" id="expCardCounter">01 / 04</div>
+                    </div>
 
-                    <a href="https://github.com/NyxFeline/flow_pet_rescue"
-                        target="_blank"
-                        class="project-card glass reveal"
-                        style="text-decoration:none; color:inherit; display:block;">
-                        <div class="card-tag">
-                            <span data-i18n="projects.flow.tag">Fullstack · Real-time · In Development</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.5;">
-                                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                                <path d="M9 18c-4.51 2-5-2-7-2"/>
-                            </svg>
-                        </div>
-                        <h3 data-i18n="projects.flow.title">FLOW<br/>Pet Rescue Platform</h3>
-                        <p data-i18n="projects.flow.desc">
-                            A platform that connects pet rescuers and adopters in real time.
-                            Users can send SOS alerts, coordinate rescues, and communicate live.
-                            Built with a NestJS backend, PostGIS for location queries, and Socket.io for real-time updates.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">NestJS</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Socket.io</span>
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Prisma</span>
-                            <span class="tech-tag">PostGIS</span>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/NyxFeline/Pikachu_New_Version"
-                        target="_blank"
-                        class="project-card glass reveal reveal-d1"
-                        style="text-decoration:none; color:inherit; display:block;">
-                        <div class="card-tag">
-                            <span data-i18n="projects.pikachu.tag">Mobile · Game Development</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.5;">
-                                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                                <path d="M9 18c-4.51 2-5-2-7-2"/>
-                            </svg>
-                        </div>
-                        <h3 data-i18n="projects.pikachu.title">Pikachu Game (Android)</h3>
-                        <p data-i18n="projects.pikachu.desc">A tile-matching Android game built from scratch in Java. I implemented the tile connection validation logic myself, along with the scoring system, countdown timer, win/lose conditions, and level reset - no game engines used.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Android Studio</span>
-                            <span class="tech-tag">Algorithm Design</span>
-                        </div>
-                    </a>
-
-                    <div class="project-card glass reveal reveal-d2" style="display:block;">
-                        <div class="card-tag">
-                            <span data-i18n="projects.research.tag">Research · Co-author · Published</span>
-                            <div style="display:flex; gap:10px; align-items:center;">
-                                <a href="https://github.com/cnqmai/MAS_Documentation" target="_blank" title="GitHub" onclick="event.stopPropagation();" style="color:var(--muted); transition:color 0.2s;" onmouseenter="this.style.color='var(--sky)'" onmouseleave="this.style.color='var(--muted)'">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                                        <path d="M9 18c-4.51 2-5-2-7-2"/>
-                                    </svg>
-                                </a>
-                                <a href="https://link.springer.com/chapter/10.1007/978-981-95-4724-1_26" target="_blank" title="Springer" onclick="event.stopPropagation();" style="color:var(--muted); transition:color 0.2s; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; text-decoration:none;" onmouseenter="this.style.color='var(--sky)'" onmouseleave="this.style.color='var(--muted)'">Springer ↗</a>
+                    <!-- Card switcher viewport -->
+                    <div class="exp-card-stage" id="expCardStage">
+                        <!-- Card 1 -->
+                        <div class="exp-feature-card active" data-index="0">
+                            <div class="card-tag">
+                                <span data-i18n="exp.card1.tag">Feature Development · Odoo Multi-version</span>
+                                <span class="exp-step-num">#01</span>
+                            </div>
+                            <h3 data-i18n="exp.card1.title">Odoo 15 &amp; 19 Survey Engine</h3>
+                            <p data-i18n="exp.card1.desc">
+                                Phân tích yêu cầu nghiệp vụ và trực tiếp thiết kế, triển khai tính năng Survey đa phiên
+                                bản tương thích liền mạch trên Odoo 15 và Odoo 19 với cấu trúc module hóa cao.
+                            </p>
+                            <div class="exp-card-metrics">
+                                <div class="exp-metric-item">
+                                    <span class="metric-val">100%</span>
+                                    <span class="metric-lbl" data-i18n="exp.card1.m1">Odoo 15/19 Compatible</span>
+                                </div>
+                                <div class="exp-metric-item">
+                                    <span class="metric-val">Full-cycle</span>
+                                    <span class="metric-lbl" data-i18n="exp.card1.m2">Direct Implementation</span>
+                                </div>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Odoo Framework</span>
+                                <span class="tech-tag">QWeb</span>
+                                <span class="tech-tag">XML</span>
+                                <span class="tech-tag">Python</span>
                             </div>
                         </div>
-                        <h3 data-i18n="projects.research.title">Automating SDLC<br/>Documentation (IoT)</h3>
-                        <p data-i18n="projects.research.desc">Supported a research group on Multi-Agent Systems. Contributed to writing and standardizing technical documentation for the system's implementation phase.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Multi-Agent Systems</span>
-                            <span class="tech-tag">IoT</span>
-                            <span class="tech-tag">SDLC</span>
-                            <span class="tech-tag">Technical Writing</span>
+
+                        <!-- Card 2 -->
+                        <div class="exp-feature-card" data-index="1">
+                            <div class="card-tag">
+                                <span data-i18n="exp.card2.tag">UX/UI Optimization · User Flow</span>
+                                <span class="exp-step-num">#02</span>
+                            </div>
+                            <h3 data-i18n="exp.card2.title">Interface &amp; Interaction Standardization</h3>
+                            <p data-i18n="exp.card2.desc">
+                                Chuẩn hóa toàn bộ thiết kế giao diện khảo sát và luồng tương tác người dùng, giúp giao
+                                diện trực quan, rõ ràng và giảm thiểu tối đa các thao tác gây lỗi.
+                            </p>
+                            <div class="exp-card-metrics">
+                                <div class="exp-metric-item">
+                                    <span class="metric-val">Intuitive</span>
+                                    <span class="metric-lbl" data-i18n="exp.card2.m1">Streamlined User Flow</span>
+                                </div>
+                                <div class="exp-metric-item">
+                                    <span class="metric-val">Zero-error</span>
+                                    <span class="metric-lbl" data-i18n="exp.card2.m2">Input Validation</span>
+                                </div>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">UI/UX Design</span>
+                                <span class="tech-tag">HTML &amp; CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Form Optimization</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="exp-feature-card" data-index="2">
+                            <div class="card-tag">
+                                <span data-i18n="exp.card3.tag">Technical Leadership · Collaboration</span>
+                                <span class="exp-step-num">#03</span>
+                            </div>
+                            <h3 data-i18n="exp.card3.title">Task Breakdown &amp; Team Delivery</h3>
+                            <p data-i18n="exp.card3.desc">
+                                Chủ động phân chia đầu việc kỹ thuật cụ thể cho các thành viên trong nhóm, theo dõi tiến
+                                độ và cam kết bàn giao các tính năng đúng hạn đề ra.
+                            </p>
+                            <div class="exp-card-metrics">
+                                <div class="exp-metric-item">
+                                    <span class="metric-val">On-time</span>
+                                    <span class="metric-lbl" data-i18n="exp.card3.m1">Milestone Delivery</span>
+                                </div>
+                                <div class="exp-metric-item">
+                                    <span class="metric-val">Agile</span>
+                                    <span class="metric-lbl" data-i18n="exp.card3.m2">Task Distribution</span>
+                                </div>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Git &amp; GitHub</span>
+                                <span class="tech-tag">Task Tracking</span>
+                                <span class="tech-tag">Sprint Planning</span>
+                                <span class="tech-tag">Teamwork</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="exp-feature-card" data-index="3">
+                            <div class="card-tag">
+                                <span data-i18n="exp.card4.tag">QA &amp; Optimization · Code Refactor</span>
+                                <span class="exp-step-num">#04</span>
+                            </div>
+                            <h3 data-i18n="exp.card4.title">Cross-Testing &amp; Code Quality</h3>
+                            <p data-i18n="exp.card4.desc">
+                                Thực hiện kiểm thử chéo chuyên sâu, chủ động phát hiện bug và tối ưu cấu trúc mã nguồn
+                                giao diện trong suốt vòng đời phát triển của dự án.
+                            </p>
+                            <div class="exp-card-metrics">
+                                <div class="exp-metric-item">
+                                    <span class="metric-val">High</span>
+                                    <span class="metric-lbl" data-i18n="exp.card4.m1">Code Maintainability</span>
+                                </div>
+                                <div class="exp-metric-item">
+                                    <span class="metric-val">Proactive</span>
+                                    <span class="metric-lbl" data-i18n="exp.card4.m2">Bug Resolution</span>
+                                </div>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Cross-Testing</span>
+                                <span class="tech-tag">Code Review</span>
+                                <span class="tech-tag">Refactoring</span>
+                                <span class="tech-tag">Performance</span>
+                            </div>
                         </div>
                     </div>
 
-                    <a href="https://github.com/NyxFeline/assembly-panic"
-                        target="_blank"
-                        class="project-card glass reveal reveal-d1"
-                        style="text-decoration:none; color:inherit; display:block;">
-                        <div class="card-tag">
-                            <span data-i18n="projects.assembly.tag">Web · Game Development</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.5;">
-                                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                                <path d="M9 18c-4.51 2-5-2-7-2"/>
-                            </svg>
+                    <!-- Card switcher controls -->
+                    <div class="exp-carousel-footer">
+                        <div class="exp-dots" id="expDots">
+                            <button class="exp-dot active" data-index="0" aria-label="Slide 1"></button>
+                            <button class="exp-dot" data-index="1" aria-label="Slide 2"></button>
+                            <button class="exp-dot" data-index="2" aria-label="Slide 3"></button>
+                            <button class="exp-dot" data-index="3" aria-label="Slide 4"></button>
                         </div>
-                        <h3 data-i18n="projects.assembly.title">Assembly Panic: Glitched Machine</h3>
-                        <p data-i18n="projects.assembly.desc">A 2D web arcade game built solo for a Game Jam using Phaser 3. I designed the full game architecture from scratch - including a GlitchManager that reverses player controls with a telegraph warning phase, an EventBus for cross-scene communication, and a combo scoring system with progressive difficulty.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Phaser 3</span>
-                            <span class="tech-tag">Vite</span>
-                            <span class="tech-tag">Game Jam</span>
-                        </div>
-                    </a>
-
-                    <div class="project-card glass reveal reveal-d2 coming-soon-card" style="display:flex;align-items:center;justify-content:center;min-height:200px;opacity:0.35;">
-                        <div style="text-align:center;">
-                            <div style="font-size:32px;margin-bottom:12px;opacity:0.4;">◆</div>
-                            <p style="font-family:var(--font-display);font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">
-                                Next Project<br/>Coming Soon…
-                            </p>
+                        <div class="exp-nav-btns">
+                            <button class="exp-btn" id="expPrevBtn" aria-label="Previous card">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button class="exp-btn" id="expNextBtn" aria-label="Next card">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills" style="position:relative;">
-            <img class="poke-float"
-                src="assets/Zoroark.png"
-                style="width:clamp(120px,14vw,220px); right:-30px; bottom:40px; animation-delay:-6s; transform:scaleX(-1);"
-                alt="" />
-            <div class="section-inner">
-                <p class="section-label reveal" data-i18n="skills.label">About &amp; Stack</p>
-                <div class="skills-layout">
-                    <div class="skills-col reveal">
-                        <h4 data-i18n="skills.tech.title">Technical Stack</h4>
-                        <ul>
-                            <li>TypeScript / JavaScript</li>
-                            <li>React / HTML / CSS</li>
-                            <li>Node.js (NestJS)</li>
-                            <li>RESTful API Design</li>
-                            <li>PostgreSQL / MongoDB</li>
-                            <li>Prisma ORM</li>
-                            <li>WebSocket (Socket.io)</li>
-                            <li>Docker / Git</li>
-                        </ul>
+    <section id="projects" style="position:relative;">
+        <img class="poke-float" src="assets/Umbreon.png"
+            style="width:clamp(120px,14vw,220px); left:-40px; top:40px; animation-delay:-3s;" alt="" />
+
+        <div class="section-inner">
+            <div class="projects-header">
+                <div>
+                    <p class="section-label reveal" data-i18n="projects.label">Selected Projects</p>
+                    <h2 class="section-title reveal reveal-d1" data-i18n="projects.title">Things I've Built.</h2>
+                </div>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+
+                <div class="project-card glass reveal" style="display:block;">
+                    <div class="card-tag">
+                        <span data-i18n="projects.somnia.tag">Web Game · B1T Jam 5 · 1-Bit Aesthetic</span>
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <a href="https://github.com/NyxFeline/somnia_hotel" target="_blank" title="GitHub"
+                                onclick="event.stopPropagation();" style="color:var(--muted); transition:color 0.2s;"
+                                onmouseenter="this.style.color='var(--sky)'"
+                                onmouseleave="this.style.color='var(--muted)'">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                                </svg>
+                            </a>
+                            <a href="https://itch.io/jam/b1t-jam-5" target="_blank" title="itch.io B1T Jam 5"
+                                onclick="event.stopPropagation();"
+                                style="color:var(--muted); transition:color 0.2s; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; text-decoration:none;"
+                                onmouseenter="this.style.color='var(--sky)'"
+                                onmouseleave="this.style.color='var(--muted)'">itch.io ↗</a>
+                        </div>
                     </div>
+                    <h3 data-i18n="projects.somnia.title">Somnia Hotel</h3>
+                    <p data-i18n="projects.somnia.desc">
+                        A 1-bit web game crafted for B1T Jam 5 under the theme "Sleep". Players explore a mysterious
+                        surreal hotel in the dream realm, solving interactive mechanics with strict 2-color palette
+                        visual constraints.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML5 Canvas</span>
+                        <span class="tech-tag">Game Jam</span>
+                        <span class="tech-tag">1-Bit Art</span>
+                        <span class="tech-tag">itch.io</span>
+                    </div>
+                </div>
 
-                    <div class="skills-col reveal reveal-d1">
-                        <h4 data-i18n="skills.edu.title">Education</h4>
+                <a href="https://github.com/NyxFeline/Pikachu_New_Version" target="_blank"
+                    class="project-card glass reveal reveal-d1"
+                    style="text-decoration:none; color:inherit; display:block;">
+                    <div class="card-tag">
+                        <span data-i18n="projects.pikachu.tag">Mobile · Game Development</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.5;">
+                            <path
+                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                            <path d="M9 18c-4.51 2-5-2-7-2" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="projects.pikachu.title">Pikachu Game (Android)</h3>
+                    <p data-i18n="projects.pikachu.desc">A tile-matching Android game built from scratch in Java. I
+                        implemented the tile connection validation logic myself, along with the scoring system,
+                        countdown timer, win/lose conditions, and level reset - no game engines used.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Android Studio</span>
+                        <span class="tech-tag">Algorithm Design</span>
+                    </div>
+                </a>
+
+                <div class="project-card glass reveal reveal-d2" style="display:block;">
+                    <div class="card-tag">
+                        <span data-i18n="projects.research.tag">Research · Co-author · Published</span>
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <a href="https://github.com/cnqmai/MAS_Documentation" target="_blank" title="GitHub"
+                                onclick="event.stopPropagation();" style="color:var(--muted); transition:color 0.2s;"
+                                onmouseenter="this.style.color='var(--sky)'"
+                                onmouseleave="this.style.color='var(--muted)'">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                                </svg>
+                            </a>
+                            <a href="https://link.springer.com/chapter/10.1007/978-981-95-4724-1_26" target="_blank"
+                                title="Springer" onclick="event.stopPropagation();"
+                                style="color:var(--muted); transition:color 0.2s; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; text-decoration:none;"
+                                onmouseenter="this.style.color='var(--sky)'"
+                                onmouseleave="this.style.color='var(--muted)'">Springer ↗</a>
+                        </div>
+                    </div>
+                    <h3 data-i18n="projects.research.title">Automating SDLC<br />Documentation (IoT)</h3>
+                    <p data-i18n="projects.research.desc">Supported a research group on Multi-Agent Systems. Contributed
+                        to writing and standardizing technical documentation for the system's implementation phase.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Multi-Agent Systems</span>
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">SDLC</span>
+                        <span class="tech-tag">Technical Writing</span>
+                    </div>
+                </div>
+
+                <div class="project-card glass reveal reveal-d1" style="display:block;">
+                    <div class="card-tag">
+                        <span data-i18n="projects.assembly.tag">Web Game · Gamedev.js Jam 2026 · Arcade</span>
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <a href="https://github.com/NyxFeline/assembly-panic" target="_blank" title="GitHub"
+                                onclick="event.stopPropagation();" style="color:var(--muted); transition:color 0.2s;"
+                                onmouseenter="this.style.color='var(--sky)'"
+                                onmouseleave="this.style.color='var(--muted)'">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                                </svg>
+                            </a>
+                            <a href="https://itch.io/jam/gamedevjs-2026" target="_blank"
+                                title="itch.io Gamedev.js Jam 2026" onclick="event.stopPropagation();"
+                                style="color:var(--muted); transition:color 0.2s; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; text-decoration:none;"
+                                onmouseenter="this.style.color='var(--sky)'"
+                                onmouseleave="this.style.color='var(--muted)'">itch.io ↗</a>
+                        </div>
+                    </div>
+                    <h3 data-i18n="projects.assembly.title">Assembly Panic: Glitched Machine</h3>
+                    <p data-i18n="projects.assembly.desc">A 2D web arcade game built solo for Gamedev.js Jam 2026 using
+                        Phaser 3. I designed the full game architecture from scratch - including a GlitchManager that
+                        reverses player controls with a telegraph warning phase, an EventBus for cross-scene
+                        communication, and a combo scoring system with progressive difficulty.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Phaser 3</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">Gamedev.js Jam 2026</span>
+                        <span class="tech-tag">itch.io</span>
+                    </div>
+                </div>
+
+                <div class="project-card glass reveal reveal-d2 coming-soon-card"
+                    style="display:flex;align-items:center;justify-content:center;min-height:200px;opacity:0.35;">
+                    <div style="text-align:center;">
+                        <div style="font-size:32px;margin-bottom:12px;opacity:0.4;">◆</div>
+                        <p
+                            style="font-family:var(--font-display);font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">
+                            Next Project<br />Coming Soon…
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills" style="position:relative;">
+        <img class="poke-float" src="assets/Zoroark.png"
+            style="width:clamp(120px,14vw,220px); right:-30px; bottom:40px; animation-delay:-6s; transform:scaleX(-1);"
+            alt="" />
+        <div class="section-inner">
+            <p class="section-label reveal" data-i18n="skills.label">About &amp; Stack</p>
+            <div class="skills-layout">
+                <div class="skills-col reveal">
+                    <h4 data-i18n="skills.tech.title">Technical Stack</h4>
+                    <div class="skill-category">
+                        <span class="skill-cat-title" data-i18n="skills.cat.lang">Languages</span>
+                        <p class="skill-cat-desc">TypeScript, JavaScript, HTML, CSS</p>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-cat-title" data-i18n="skills.cat.fe">Frontend &amp; Frameworks</span>
+                        <p class="skill-cat-desc">React, Odoo Framework (QWeb / XML)</p>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-cat-title" data-i18n="skills.cat.be">Backend Basics</span>
+                        <p class="skill-cat-desc">Node.js, Python</p>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-cat-title" data-i18n="skills.cat.tools">Tools &amp; Workflow</span>
+                        <p class="skill-cat-desc">Git, GitHub</p>
+                    </div>
+                </div>
+
+                <div class="skills-col reveal reveal-d1">
+                    <h4 data-i18n="skills.edu.title">Education</h4>
+                    <div class="edu-item">
+                        <h5 class="edu-school-name" data-i18n="skills.edu.school">Trường Đại học Văn Lang</h5>
                         <ul>
                             <li data-i18n="skills.edu.major">Software Engineering</li>
-                            <li data-i18n="skills.edu.year">3rd Year - GPA: 3.4/4.0</li>
-                            <li data-i18n="skills.edu.location">Ho Chi Minh City, Vietnam</li>
+                            <li data-i18n="skills.edu.year">4th Year (Senior) · GPA: 3.4/4.0</li>
+                            <li data-i18n="skills.edu.period">2023 - Present</li>
                         </ul>
-                        <div style="margin-top:32px;">
-                            <h4 style="margin-bottom:20px;" data-i18n="skills.activities.title">Activities</h4>
-                            <ul>
-                                <li data-i18n="skills.activities.workshops">Tech workshops &amp; seminars</li>
-                                <li data-i18n="skills.activities.oss">Open source contributions</li>
-                            </ul>
+                    </div>
+                    <div style="margin-top:28px;">
+                        <h4 style="margin-bottom:16px;" data-i18n="skills.soft.title">Soft Skills</h4>
+                        <ul>
+                            <li data-i18n="skills.soft.english">English (Technical reading &amp; docs)</li>
+                            <li data-i18n="skills.soft.teamwork">Teamwork &amp; Cross-functional Collaboration</li>
+                            <li data-i18n="skills.soft.problem">Problem Solving &amp; Analytical Mindset</li>
+                            <li data-i18n="skills.soft.time">Time Management &amp; Ownership</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skills-col reveal reveal-d2">
+                    <h4 data-i18n="skills.contact.title">Contact</h4>
+                    <div class="connect-links">
+                        <a href="mailto:dothieuvy@gmail.com" class="connect-link">
+                            <span class="icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                            </span>
+                            dothieuvy@gmail.com
+                        </a>
+                        <div class="connect-link">
+                            <span class="icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z" />
+                                </svg>
+                            </span>
+                            0981 324 463
                         </div>
                     </div>
-
-                    <div class="skills-col reveal reveal-d2">
-                        <h4 data-i18n="skills.contact.title">Contact</h4>
-                        <div class="connect-links">
-                            <a href="mailto:dothieuvy@gmail.com" class="connect-link">
-                                <span class="icon">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect width="20" height="16" x="2" y="4" rx="2"/>
-                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                                    </svg>
-                                </span>
-                                dothieuvy@gmail.com
-                            </a>
-                            <div class="connect-link">
-                                <span class="icon">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/>
-                                    </svg>
-                                </span>
-                                0981 324 463
-                            </div>
-                        </div>
-                        <div class="social-row">
-                            <a href="https://github.com/NyxFeline" target="_blank" class="social-link">GitHub</a>
-                            <a href="https://www.facebook.com/thieuvyh.65" target="_blank" class="social-link">Facebook</a>
-                        </div>
+                    <div class="social-row">
+                        <a href="https://github.com/NyxFeline" target="_blank" class="social-link">GitHub</a>
+                        <a href="https://www.facebook.com/thieuvyh.65" target="_blank" class="social-link">Facebook</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer>
-            <p data-i18n="footer.text">© 2025 ĐỖ THIỆU VY - SOFTWARE ENGINEERING STUDENT</p>
-        </footer>
+    <footer>
+        <p data-i18n="footer.text">© 2026 ĐỖ THIỆU VY - FINAL-YEAR SOFTWARE ENGINEERING STUDENT</p>
+    </footer>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
-        <script src="script.js"></script>
-    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
 </html>
