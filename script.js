@@ -177,6 +177,9 @@ const translations = {
         'projects.assembly.tag': 'Web Game · Gamedev.js Jam 2026 · Arcade',
         'projects.assembly.title': 'Assembly Panic: Glitched Machine',
         'projects.assembly.desc': 'A 2D web arcade game built solo for Gamedev.js Jam 2026 using Phaser 3. Full game architecture from scratch - GlitchManager that reverses player controls, EventBus for cross-scene communication, combo scoring with progressive difficulty.',
+        'projects.costume.tag': 'Web Game · Pixel Art · Adventure',
+        'projects.costume.title': 'Costume Caper',
+        'projects.costume.desc': 'A 2D pixel-art adventure game set in a haunted mansion. Sneak past monsters, collect keys, use the right disguises, recover the mask, and escape.',
 
         'skills.label': 'About & Stack',
         'skills.tech.title': 'Technical Stack',
@@ -264,6 +267,9 @@ const translations = {
         'projects.assembly.tag': 'Web Game · Gamedev.js Jam 2026 · Arcade',
         'projects.assembly.title': 'Assembly Panic: Glitched Machine',
         'projects.assembly.desc': 'Game arcade 2D web xây solo khi tham gia Gamedev.js Jam 2026 bằng Phaser 3. Thiết kế toàn bộ kiến trúc game - GlitchManager đảo chiều điều khiển người chơi, EventBus cho giao tiếp liên scene, hệ thống combo với độ khó tăng dần.',
+        'projects.costume.tag': 'Web Game · Pixel Art · Phiêu lưu',
+        'projects.costume.title': 'Costume Caper',
+        'projects.costume.desc': 'Game phiêu lưu 2D phong cách pixel-art lấy bối cảnh một dinh thự ma ám. Lén vượt qua quái vật, thu thập chìa khóa, sử dụng đúng hóa trang, tìm lại chiếc mặt nạ và trốn thoát.',
 
         'skills.label': 'Giới thiệu & Kỹ năng',
         'skills.tech.title': 'Kỹ Năng Chuyên Môn',
