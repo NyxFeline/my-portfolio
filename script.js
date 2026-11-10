@@ -180,6 +180,9 @@ const translations = {
         'projects.costume.tag': 'Web Game · Pixel Art · Adventure',
         'projects.costume.title': 'Costume Caper',
         'projects.costume.desc': 'A 2D pixel-art adventure game set in a haunted mansion. Sneak past monsters, collect keys, use the right disguises, recover the mask, and escape.',
+        'projects.hatVang.tag': 'Web · Landing Page',
+        'projects.hatVang.title': 'Hat Vàng Landing Page',
+        'projects.hatVang.desc': 'A responsive landing page project focused on presenting the Hat Vàng brand with a clear visual identity and engaging user experience.',
 
         'skills.label': 'About & Stack',
         'skills.tech.title': 'Technical Stack',
@@ -270,6 +273,9 @@ const translations = {
         'projects.costume.tag': 'Web Game · Pixel Art · Phiêu lưu',
         'projects.costume.title': 'Costume Caper',
         'projects.costume.desc': 'Game phiêu lưu 2D phong cách pixel-art lấy bối cảnh một dinh thự ma ám. Lén vượt qua quái vật, thu thập chìa khóa, sử dụng đúng hóa trang, tìm lại chiếc mặt nạ và trốn thoát.',
+        'projects.hatVang.tag': 'Web · Landing Page',
+        'projects.hatVang.title': 'Landing Page Mũ Vàng',
+        'projects.hatVang.desc': 'Dự án landing page responsive tập trung vào việc giới thiệu thương hiệu Mũ Vàng bằng nhận diện trực quan rõ ràng và trải nghiệm người dùng thu hút.',
 
         'skills.label': 'Giới thiệu & Kỹ năng',
         'skills.tech.title': 'Kỹ Năng Chuyên Môn',

@@ -225,6 +225,10 @@ nav.scrolled::after { opacity: 1; }
     display: flex; gap: 32px; align-items: center;
     list-style: none; position: relative; z-index: 2;
 }
+.nav-links > li {
+    display: flex;
+    align-items: center;
+}
 .nav-links a {
     font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--muted); text-decoration: none;
@@ -235,8 +239,24 @@ nav.scrolled::after { opacity: 1; }
     font-family: var(--font-body);
     font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--white); text-decoration: none;
-    padding: 9px 24px; border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    overflow: hidden;
+    isolation: isolate;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: transform 0.25s, box-shadow 0.25s;
+}
+.nav-cta.glass::before,
+.nav-cta.glass::after {
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
 }
 .nav-cta:hover { transform: scale(1.04); box-shadow: 0 0 24px rgba(37,99,235,0.5); }
 
