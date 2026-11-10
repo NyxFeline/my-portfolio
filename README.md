@@ -1,4 +1,4 @@
-# 🐾 NyxFeline — Portfolio Website
+# NyxFeline — Portfolio Website
 
 > Personal portfolio website of **Đỗ Thiệu Vy** — Fullstack Developer based in Ho Chi Minh City.
 
@@ -12,7 +12,7 @@
 
 ## 🧠 Overview
 
-A minimalist, performance-focused portfolio built with pure HTML, CSS, and JavaScript. No frameworks, no bundlers — optimized for simplicity, fast load times, and full control over UI behavior.
+A minimalist, performance-focused portfolio built with pure HTML, CSS, and JavaScript. The current design uses a modern dark theme, cyan accent system, responsive layout, and bento-style project cards.
 
 ---
 
@@ -29,9 +29,10 @@ A minimalist, performance-focused portfolio built with pure HTML, CSS, and JavaS
 
 ## ✨ Features
 
-- 🖱️ Custom cursor interaction
 - 📜 Scroll reveal animation
-- 🌊 Parallax effects
+- 🌑 Modern dark theme with cyan accents
+- 🧩 Bento-style project cards
+- 🌐 English/Vietnamese language switcher
 - 📱 Responsive layout
 - ⚡ Clean, lightweight structure
 
@@ -40,11 +41,12 @@ A minimalist, performance-focused portfolio built with pure HTML, CSS, and JavaS
 ## 📁 Project Structure
 
 ```
-vy-portfolio/
+portfolio/
 ├── index.html       # Main page
 ├── style.css        # Styling & variables
 ├── script.js        # Interactions & effects
-├── assets/          # Images (PNG)
+├── assets/
+│   └── logo.png     # Browser favicon
 └── README.md
 ```
 
@@ -68,32 +70,26 @@ Or simply open `index.html` directly in your browser.
 
 ```html
 <link
-  href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
   rel="stylesheet"
 />
 ```
 
 ```css
---font-display: "Pacifico", cursive;
---font-body: "Pacifico", cursive;
+--font-display: "Plus Jakarta Sans", sans-serif;
+--font-body: "Inter", sans-serif;
 ```
 
 ### Change Colors
 
 ```css
 :root {
-  --bg: #0a0010;
-  --purple: #7b2fff;
-  --lavender: #c084fc;
-  --text: #e8dff5;
-  --muted: #7c6d8a;
+  --bg: #0f1115;
+  --bg-surface: #1e2024;
+  --sky: #00e5ff;
+  --text: #d4d4d8;
+  --muted: #a1a1aa;
 }
-```
-
-### Replace Images
-
-```html
-<img src="assets/gengar.png" alt="Gengar" />
 ```
 
 ### Add Project Card
@@ -105,8 +101,8 @@ Duplicate the `.project-card` block in `index.html`.
 ## 📌 Design Philosophy
 
 - **Minimal dependencies** — easier long-term maintenance
-- **Visual identity** driven by a dark + neon palette
-- **Interaction-first UI** — cursor behavior, motion, and depth
+- **Visual identity** driven by a charcoal background and cyan accent
+- **Recruiter-first layout** — clear experience, projects, skills, and contact details
 
 ---
 

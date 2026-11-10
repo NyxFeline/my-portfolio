@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,10 +17,6 @@
 <body>
     <div id="cursor"></div>
     <div id="cursor-ring"></div>
-
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
 
     <nav>
         <a href="" class="logo">NyxFeline<sup>®</sup></a>
@@ -42,19 +38,15 @@
     </nav>
 
     <section id="hero">
-        <canvas id="space-canvas"></canvas>
-
-        <img class="gengar-svg chandelure-top-left" src="assets/chandelure.png" alt="Chandelure" />
-
         <p class="hero-eyebrow">
             <span></span>
-            <span data-i18n="hero.eyebrow">Frontend-focused Developer</span>
+            <span data-i18n="hero.eyebrow">Available for frontend &amp; web opportunities</span>
             <span></span>
         </p>
 
         <h1 class="hero-title">
-            <span data-i18n="hero.title.line1">Building <em>ideas</em></span><br />
-            <span data-i18n="hero.title.line2">into real <em>products.</em></span>
+            <span data-i18n="hero.title.line1">Building <em><span class="keep-together">digital experiences</span></em></span><br />
+            <span data-i18n="hero.title.line2">&amp; scalable web products.</span>
         </h1>
 
         <p class="hero-sub" data-i18n="hero.sub">
@@ -73,7 +65,6 @@
             </a>
         </div>
 
-        <img class="gengar-svg" src="assets/gengar.png" alt="Gengar" />
     </section>
 
     <div class="marquee-wrap">
@@ -302,9 +293,6 @@
     </section>
 
     <section id="projects" style="position:relative;">
-        <img class="poke-float" src="assets/Umbreon.png"
-            style="width:clamp(120px,14vw,220px); left:-40px; top:40px; animation-delay:-3s;" alt="" />
-
         <div class="section-inner">
             <div class="projects-header">
                 <div>
@@ -505,7 +493,7 @@
                                 onmouseleave="this.style.color='var(--muted)'">Live ↗</a>
                         </div>
                     </div>
-                    <h3 data-i18n="projects.hatVang.title">Hat Vàng Landing Page</h3>
+                    <h3 data-i18n="projects.hatVang.title">Hạt Vàng Landing Page</h3>
                     <p data-i18n="projects.hatVang.desc">A responsive landing page project focused on presenting the Hat Vàng brand with a clear visual identity and engaging user experience.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">HTML</span>
@@ -531,9 +519,6 @@
     </section>
 
     <section id="skills" style="position:relative;">
-        <img class="poke-float" src="assets/Zoroark.png"
-            style="width:clamp(120px,14vw,220px); right:-30px; bottom:40px; animation-delay:-6s; transform:scaleX(-1);"
-            alt="" />
         <div class="section-inner">
             <p class="section-label reveal" data-i18n="skills.label">About &amp; Stack</p>
             <div class="skills-layout">
@@ -615,8 +600,6 @@
         <p data-i18n="footer.text">© 2026 ĐỖ THIỆU VY - FINAL-YEAR SOFTWARE ENGINEERING STUDENT</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
     <script src="script.js"></script>
 </body>
 
